@@ -1,0 +1,100 @@
+
+.fourthSection{
+  margin-left: 73vh;
+  margin-top: 30vh;
+}
+
+.seperatorx {
+  margin-left: -40vh;
+  margin-top: -170px;
+}
+.card-container {
+    max-height: 500px; /* Adjust the max height as needed */
+    overflow-y: auto;
+  }
+  
+  .cardz {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px;
+    background: linear-gradient(90deg, rgb(17, 17, 17), rgb(0, 0, 0)); /* Linear gradient background */
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    .card-image {
+      flex: 1;
+      max-width: 50%;
+      height: 100%;
+      border-radius: 10px 0 0 10px;
+      overflow: hidden;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    .card-content {
+      flex: 1;
+      padding: 20px;
+  
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #fff; /* Text color for the title */
+      }
+  
+      p {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: #eee; /* Text color for the content */
+      }
+  
+      .read-more {
+        margin-top: 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  
+@media screen and (max-width: 768px) {
+  .fourthSection {
+    margin-left: -3vh;
+    margin-top: 8vh;
+    // overflow-y: hidden;
+  }
+  .seperatorx {
+    margin-top: 16px;
+    margin-left: 90px;
+  }
+  .card-container {
+    overflow-y: auto;
+  }
+  .cardz {
+    margin: 20px 53px;
+    max-width: 80%;
+  } /* Adjust to fit the screen width */
+  
+}

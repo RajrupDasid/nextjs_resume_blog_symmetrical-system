@@ -1,0 +1,117 @@
+.blog-detail-container {
+  display: flex;
+  margin: 20px;
+
+  .left-column {
+    flex: 2; /* Adjust the ratio between left and right columns */
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+
+    .header {
+      margin-bottom: 20px;
+
+      .blog-header-image {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+/* Add this to your existing CSS */
+
+.comment-box {
+  margin-top: 20px;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .comment {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    // background-color: #f9f9f9;
+
+    .comment-text {
+      font-size: 16px;
+    }
+
+    .comment-author {
+      font-size: 14px;
+      color: #888;
+      margin-top: 5px;
+    }
+  }
+}
+.comment-form {
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    resize: none;
+    font-size: 16px;
+  }
+
+  button {
+    background-image: linear-gradient(to bottom, #1fd825, #45a049);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-image: linear-gradient(to bottom, #45a049, #4caf50);
+  }
+}
+
+
+    .blog-details {
+      .blog-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .blog-description {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      /* Add comment section styles here */
+    }
+  }
+
+  .right-column {
+    flex: 1; /* Adjust the ratio between left and right columns */
+    padding-left: 20px;
+
+    .post-list {
+      h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .most-popular-posts,
+      .topics {
+        margin-bottom: 20px;
+
+        h3 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        /* Add styles for popular posts and topics here */
+      }
+    }
+  }
+}

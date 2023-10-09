@@ -1,0 +1,63 @@
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px; /* Adjust the width as needed */
+  height: 80px; /* Adjust the height as needed */
+  border: 2px solid #d4d3d3; /* Border color and thickness */
+  border-radius: 50%; /* Makes it round */
+  background-color: rgb(4, 4, 4);
+}
+
+.techsection{
+  height: 40vh;
+}
+.toptech{
+  display: flex;
+justify-content: space-around;
+
+}
+.toptech .top{
+  display: flex;
+ justify-content: space-around;
+}
+.top .tech2{
+  margin: 0px 70px;
+}
+.top .tech4{
+  margin: 0px 70px;
+}
+
+.bottomtech{
+  display: flex;
+justify-content: space-evenly;
+margin-top: 90px;
+
+}
+/* Media Query for Mobile View */
+@media (max-width: 600px) {
+  .toptech{
+    flex-direction: row; /* Display icons side by side */
+    justify-content: space-evenly; /* Center icons horizontally */
+    align-items: center; /* Center icons vertically */
+    gap:6px
+  }
+  .top .tech2{
+    margin: 0px ;
+  }
+  .top .tech4{
+    margin: 0px;
+  }
+  .bottomtech {
+    flex-direction: row; /* Display icons side by side */
+    justify-content: center; /* Center icons horizontally */
+    align-items: center; /* Center icons vertically */
+    gap:20px
+  }
+
+  .icon-container {
+    width: 60px; /* Adjust the width for mobile view */
+    height: 60px; /* Adjust the height for mobile view */
+    font-size: 20px; /* Adjust the icon size for mobile view */
+  }
+}

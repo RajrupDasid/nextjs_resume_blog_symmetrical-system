@@ -1,0 +1,76 @@
+.aboutme{
+display: flex;
+place-items: center;
+place-content: center;
+margin: 230px 0 0 0;
+font-size: 2.8rem;
+}
+.firstabout{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 140px;
+}
+.circular--landscape{
+    display: inline-block; 
+    position: relative; 
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 50%;
+}
+.circular--landscape img { 
+    width: auto; 
+    height: 100%; 
+    margin-left: -50px; 
+}
+.rightabout p {
+    display: grid;
+    max-width: 190px;
+    place-content: center;
+    font-size: 2.5rem;
+    gap: 5px;
+  }
+//   description
+  .dessec {
+    padding: 40px;
+    // background: linear-gradient(to right, #020000, #000000);
+    color: #ffffff;
+    text-align: center;
+    margin-left: -100vh;
+  }
+  
+  .below {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40vh;
+    margin-top: 30vh;
+  }
+  .boxx {
+    // background-color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  .cardp {
+    text-align: left;
+    border: 1px solid white;
+    height: 75vh;
+    width: 75vh;
+  }
+  
+  .cardp p {
+    font-size: 2rem;
+    max-width: 66%;
+    margin-left: 18px;
+    margin-top: 150px;
+  }
+  .descrip {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Additional styles can be added as needed */
+  

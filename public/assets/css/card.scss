@@ -1,0 +1,53 @@
+.thirdSection{
+  margin-left: 110px;
+}
+.thirdSection {
+  .heading {
+    background: transparent;
+    border: 1px solid #000; // 1px round border
+    padding: 70px;
+    text-align: center; /* Center text horizontally */
+    margin-bottom: 20px; /* Add margin to separate from project cards */
+    
+  }
+  @media (max-width: 600px) {
+    .thirdSection {
+      margin-left: 23px;
+  
+    }
+  }
+  .project-cards {
+    display: flex;
+    flex-wrap: wrap; /* Wrap cards to the next line if there's not enough space */
+    justify-content: space-between;
+    gap: 20px; /* Add gap between cards */
+    padding: 123px 145px;
+    @media (max-width: 600px) {
+      flex-direction: column; /* Stack cards on top of each other */
+      padding: 35px; /* Adjust padding for mobile view */
+    }
+  }
+
+  .project-card {
+    flex: 1;
+    background-color: transparent; // Card background color
+    border: 1px solid whitesmoke; // 1px round border
+    padding: 70px; /* Adjust padding for mobile view */
+    width: calc(50% - 20px); /* Set width for each card (50% of the container width) */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    @media (max-width: 600px) {
+      width: 100%; /* Full width for mobile view */
+      padding: 27px;
+      margin: 0px -43px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

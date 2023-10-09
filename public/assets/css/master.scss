@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary: rgb(238, 238, 240);
+}
+body {
+   
+    // background: rgb(161, 151, 255);
+    background: linear-gradient(
+      45deg,
+      #ee7752,
+      #e73c7e,
+      #23a6d5,
+      #23d5ab,
+      #ff3333,
+      #0269d1, /* Add more colors as desired */
+      #3498db,
+      #e74c3c,
+      #2ecc71
+    );
+    background-size: 400% 400%;
+    // animation: gradient  15s ease infinite, colorChange 1s ease infinite alternate;
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    
+  }
+ 
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes colorChange {
+    0% {
+      background-color: #ee7752;
+    }
+    12.5% {
+      background-color: #e73c7e;
+    }
+    25% {
+      background-color: #23a6d5;
+    }
+    37.5% {
+      background-color: #23d5ab;
+    }
+    50% {
+      background-color: #ff3333;
+    }
+    62.5% {
+      background-color: #005cb8;
+    }
+    75% {
+      background-color: #3498db;
+    }
+    87.5% {
+      background-color: #e74c3c;
+    }
+    100% {
+      background-color: #2ecc71;
+    }
+  }
+//   linear body ends here
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid;
+    border-radius: 20px;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    position: relative;
+    display: inline-block;
+    margin-right: 20px; 
+}
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+nav ul li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+nav ul li:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+  
+.left{
+    font-size: 1.8rem;
+}
+.firstSection{
+    display: flex;
+    justify-content: space-around;
+    margin: 120px 0;
+    align-items: center;
+}
+.firstSection > div{
+    width: 30%;
+}
+.leftSection{
+    font-size: 2.6rem;            
+}
+.leftSection .btn{
+    padding:12px;           
+    background: #000121;
+    color: white;
+    border-radius: 6px;
+    font-size: 20px;
+
+}
+.rightSection img{
+   width: 80%;
+   height: auto;
+ 
+}
+.purple{
+    color: blueviolet;
+    margin-left: 20px;
+}
+.textgrey{
+    color: grey;
+}
+#element{
+color: darkslateblue;
+}
+.secondSection{
+max-width: 80vw;
+margin: auto;
+height: 70vh;
+}
+main hr{
+border: 0;
+height: 2px;
+background-color: yellowgreen;
+margin: 60px 84px;
+}
+.secondSection h1{
+font-size: 1.8rem;
+}
+.secondSection .box{
+    background: white;
+    width: 80vw;
+    height: 2px;
+    margin: 106px 0;
+    display: flex;
+}
+.secondSection .mobile-box{
+    visibility: hidden;
+}
+.secondSection .vertical{
+    height: 93px;
+    width: 1px;
+    background-color: white;
+    margin: 0px 185px;
+}
+.image-top{
+    width: 23px;
+    position: relative;
+    top: -32px;
+    left: -9px;  
+    height: auto;
+}
+
+.vertical-title{
+    position: relative;
+    top: 75px;
+    width: 150px;
+    font-size: 18px;
+
+}
+.verticle-desc{
+position: relative;
+top: 90px;
+color: grey;
+width: 150px;
+font-size: 10px;
+}
+
+
+nav .menu{
+    display: none;
+    transition: 0.3s;
+}
+
+nav .menu svg {
+    color: #ffffff;
+    font-size: 1.8em;
+}
+
+@media(max-width:600px){
+   
+    nav .left{
+        font-size: 1.2rem;
+    }
+    nav ul{
+        display: none;
+    }
+    nav .menu{
+        display: block;
+    }
+    .firstSection > div {
+        width: 40%;
+    }
+    .purple{
+        margin-left: 10px;
+    }
+    .mxxu{
+    color: purple;
+    margin-left: 2px;
+    }
+    .rightSection{
+        display: none;
+    }
+    .leftSection {
+    font-size: 1.8rem;
+    }
+    .secondSection{
+        overflow: hidden;
+        height: 60vh;
+    }
+    .secondSection .box{
+        visibility: hidden;
+        display: none;
+    }
+    .secondSection .vertical {
+        height: 93px;
+        width: 1px;
+        background-color: white;
+        margin: 58px 115px;
+      }
+    .secondSection .mobile-box{
+     visibility: visible;
+ 
+    }
+    .secondSection .vertical-title h5{
+        margin: 17px 43px 22px -23px;
+    }
+    .secondSection .verticle-desc{
+        margin: 0 -19px;
+    }
+    
+}
+
+/*
+nav .menu svg {
+    transform: rotateZ(45deg);
+}
+*/
