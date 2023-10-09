@@ -3,19 +3,21 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 // import "../assets/css/blogpage.scss";
 import "@/public/assets/css/blogpage.scss";
+import Link from "next/link";
 
 export interface BlogPost {
   id: number;
   title: string;
   content: string;
+  slug: string;
 }
 
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  //const apiURl = process.env.NEXT_PUBLIC_API_URL;
+  //const api = process.env.NEXT_PUBLIC_API_URL;
   //console.log(apiURl);
-  const apiURl = "http://127.0.0.1:8000/api/blogs/";
+  const api = "http://127.0.0.1:8000/api/blogs/";
   const apk = process.env.NEXT_PUBLIC_API_KEY;
 
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
@@ -23,7 +25,7 @@ export default function Blog() {
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(apiURl, {
+      const response = await axios.get(api, {
         headers: {
           Authorization: `${apl} ${apk}`,
         },
@@ -36,7 +38,7 @@ export default function Blog() {
     } finally {
       setIsLoading(false);
     }
-  }, [apiURl, apk, apl]);
+  }, [api, apk, apl]);
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
@@ -55,7 +57,9 @@ export default function Blog() {
         {blogPosts.map((post) => (
           <div className="blog-card" key={post.id}>
             <h2>{post.title}</h2>
-            <p>{post.content}</p>
+            <Link href={`/blogs/${post.slug}`}>
+              <p>{post.content}</p>
+            </Link>
           </div>
         ))}
         {isLoading && <p>Loading...</p>}
