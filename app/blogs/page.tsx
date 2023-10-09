@@ -62,10 +62,10 @@ export default function Blog() {
 
   const truncateContent = (content: string) => {
     // Display between 40 and 50 characters
-    if (content.length <= 150) {
+    if (content.length <= 100000) {
       return content;
     }
-    return content.slice(0, 150) + "...";
+    return content.slice(0, 90) + "...";
   };
 
   return (
