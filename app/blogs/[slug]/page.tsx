@@ -5,7 +5,6 @@ import axios from "axios";
 import "@/public/assets/css/BlogDetail.scss";
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
-
 const headers = {
   Authorization: `${apl}  ${apk}`,
 };
@@ -15,7 +14,8 @@ const headers = {
 //   headers: headers,
 // });
 const getData = async (slug: string): Promise<any> => {
-  const api = `http://127.0.0.1:8000/api/blogs/${slug}`;
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  const api = `${url}${slug}`;
   const res = await axios.get(api, {
     headers: {
       Authorization: `${apl} ${apk}`,
