@@ -15,14 +15,15 @@ export interface BlogPost {
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const api = "http://127.0.0.1:8000/api/blogs/";
+  // const api = "http://127.0.0.1:8000/api/blogs/";
   const apk = process.env.NEXT_PUBLIC_API_KEY;
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
+  const api = process.env.NEXT_PUBLIC_API_URL;
 
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(api, {
+      const response = await axios.get(`${api}`, {
         headers: {
           Authorization: `${apl} ${apk}`,
         },
