@@ -1,0 +1,58 @@
+name: Next.js build and deploy to s3
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    env:
+      BUCKET: ${{ secrets.BUCKET_NAME }}
+      DIST: .next
+      DIST_ID: ${{ secrets.DIST_ID }}
+      NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+      NEXT_PUBLIC_API_PARAMS: ${{ secrets.NEXT_PUBLIC_API_PARAMS }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.S3_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.S3_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Node management
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.7.0"
+
+      - name: Install packages
+        run: |
+          node --version
+          pnpm install
+
+      - name: Set environment variables
+        run: |
+          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}" >> .env.local
+          echo "NEXT_PUBLIC_API_PARAMS=${{ secrets.NEXT_PUBLIC_API_PARAMS }}" >> .env.local
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.local
+
+      - name: Build static files
+        run: |
+          pnpm run build
+
+      - name: AWS S3 DEPLOY
+        run: |
+          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
+
+      - name: CLOUDFRONT propagate
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.DIST_ID }} \
+            --paths "/*"
