@@ -48,16 +48,3 @@ jobs:
       - name: Build static files
         run: |
           pnpm run build
-
-      - name: AWS S3 DEPLOY
-        run: |
-          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
-
-      - name: CLOUDFRONT propagate
-        uses: chetan/invalidate-cloudfront-action@master
-        env:
-          DISTRIBUTION: ${{ env.DIST_ID }}
-          PATHS: "/*"
-          AWS_REGION: secrets.AWS_REGION
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
