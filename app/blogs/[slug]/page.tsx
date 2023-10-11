@@ -44,8 +44,7 @@ const SinglePage = async ({
 }): Promise<JSX.Element> => {
   const { slug } = params;
   const post = await getData(slug);
-  const api = process.env.NEXT_PUBLIC_IMAGE_API_URL;
-  const imageurl = `${api}/${post.thumbnail}`;
+  const imageurl = `${post.thumbnail}`;
   const clean = DOMPurify.sanitize(post.content);
   return (
     <>
@@ -55,9 +54,9 @@ const SinglePage = async ({
             <Image
               src={imageurl}
               alt="Blog Header"
-              width={370}
-              height={300}
               className="blog-header-image"
+              width={1200}
+              height={400}
             />
           </div>
           <div className="blog-details">
