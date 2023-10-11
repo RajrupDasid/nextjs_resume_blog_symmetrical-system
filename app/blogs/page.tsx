@@ -19,8 +19,6 @@ export default function Blog() {
   const apk = process.env.NEXT_PUBLIC_API_KEY;
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
   const api = process.env.NEXT_PUBLIC_API_URL;
-  const imageapi = process.env.NEXT_PUBLIC_IMAGE_API_URL;
-
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -77,10 +75,10 @@ export default function Blog() {
           <div className="blog-card" key={post.id}>
             <div className="card-image">
               <Image
-                src={imageapi + post.thumbnail}
+                src={post.thumbnail}
                 alt="post images"
-                width={100} // Set the desired width
-                height={100} // S
+                width={100}
+                height={100}
               />
             </div>
             <div className="card-content">
