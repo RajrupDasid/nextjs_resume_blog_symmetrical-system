@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40vh;
+  height: 30vh;
   border: 1px solid #ffffff;
 
   @media (max-width: 600px) {
@@ -29,11 +29,14 @@
 
 .social-icons {
   display: flex;
-  gap: 20px; 
+  gap: 20px;
   font-size: 24px;
-
+  margin-top: 154px;
+  margin-left: -48vh;
   @media (max-width: 600px) {
-    margin-bottom: 20px;
+    margin-bottom: 78px;
+    margin-top: 75px;
+    margin-left: 0vh;
   }
 }
 
@@ -43,6 +46,7 @@
 
   @media (max-width: 600px) {
     flex-direction: column;
+    gap: 16px;
   }
 }
 
@@ -74,5 +78,28 @@
 
   @media (max-width: 600px) {
     margin-top: 20px;
+  }
+}
+
+.footer-links {
+  margin-top: 160px; /* Default space between the newsletter and links */
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px; /* Add space between the links */
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Adjust styles for screens up to 768px width */
+    margin-top: 40px; /* Reduce the space on smaller screens */
+
+    a {
+      font-size: 14px; /* Reduce the text size on smaller screens */
+    }
   }
 }

@@ -12,15 +12,8 @@ body {
     // background: rgb(161, 151, 255);
     background: linear-gradient(
       45deg,
-      #ee7752,
-      #e73c7e,
-      #23a6d5,
-      #23d5ab,
-      #ff3333,
-      #0269d1, /* Add more colors as desired */
-      #3498db,
-      #e74c3c,
-      #2ecc71
+      #002167 ,
+      #061b49 
     );
     background-size: 400% 400%;
     // animation: gradient  15s ease infinite, colorChange 1s ease infinite alternate;
@@ -28,6 +21,18 @@ body {
     font-family: 'Poppins', sans-serif;
     
   }
+  /*
+    #ee7752,
+      #e73c7e,
+      #23a6d5,
+      #23d5ab,
+      #ff3333,
+      #0269d1, 
+      #3498db,
+      #e74c3c,
+      #2ecc71
+
+  */
  
   @keyframes gradient {
     0% {
