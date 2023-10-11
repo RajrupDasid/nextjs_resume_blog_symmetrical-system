@@ -48,13 +48,3 @@ jobs:
       - name: Build static files
         run: |
           pnpm run build
-
-      - name: AWS S3 DEPLOY
-        run: |
-          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
-
-      - name: CLOUDFRONT propagate
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ env.DIST_ID }} \
-            --paths "/*"

@@ -1,76 +1,155 @@
-.aboutme{
-display: flex;
-place-items: center;
-place-content: center;
-margin: 230px 0 0 0;
-font-size: 2.8rem;
+/* Default styles */
+
+.aboutme {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  margin: 230px 0 0 0;
+  font-size: 2.8rem;
 }
-.firstabout{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 140px;
+
+.firstabout {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 140px;
 }
-.circular--landscape{
-    display: inline-block; 
-    position: relative; 
-    width: 200px; 
-    height: 200px; 
-    overflow: hidden; 
-    border-radius: 50%;
+
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
 }
-.circular--landscape img { 
-    width: auto; 
-    height: 100%; 
-    margin-left: -50px; 
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
 }
+
 .rightabout p {
-    display: grid;
-    max-width: 190px;
-    place-content: center;
-    font-size: 2.5rem;
-    gap: 5px;
-  }
-//   description
-  .dessec {
-    padding: 40px;
-    // background: linear-gradient(to right, #020000, #000000);
-    color: #ffffff;
-    text-align: center;
+  display: grid;
+  max-width: 190px;
+  place-content: center;
+  font-size: 2.5rem;
+  gap: 5px;
+}
+
+.dessec {
+  padding: 40px;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 8vh;
+}
+
+
+.below {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40vh;
+  margin-top: 30vh;
+}
+
+.boxx {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 18px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+.cardp {
+  text-align: left;
+  border: 1px solid white;
+  height: 47vh;
+  width: 70vh;
+}
+
+.cardp p {
+  font-size: 1.5rem;
+  max-width: 94%;
+  margin-left: 18px;
+  margin-top: 45px;
+}
+
+.descrip {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+.onthe{
+  margin-top: 0px;
+}
+
+.boxx2 {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 18px 6px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  /* Adjust styles for screens up to 768px width */
+  .dessec{
     margin-left: -100vh;
+
+  }
+  .aboutme{
+  margin: 55px 0 0 0;
+  font-size: 1.7rem;
+  }
+  .firstabout {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+      align-items: center; /* Center items vertically */
+      margin-top: 60px;/* Adjust the margin as needed */
+  }
+  
+  .circular--landscape {
+      width: 150px; /* Adjust the circular image size */
+      height: 150px;
+  }
+  
+  .rightabout p {
+    max-width: 95%;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 18px; /* Center text on smaller screens */
+  }
+  .rightabout h1{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    margin-top: 26px;
+    margin-left: 10vh;
   }
   
   .below {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40vh;
-    margin-top: 30vh;
+    margin-bottom: 20vh;
+    margin-top: 10vh;
+    margin-left: 30vh;
   }
+  
   .boxx {
-    // background-color: #000000;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    font-size: 1.2rem;
+  margin-bottom: 5px;/* Adjust the max-width for the boxes */
+  margin-left: 68vh;
   }
+  .boxx2{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
   .cardp {
-    text-align: left;
-    border: 1px solid white;
-    height: 75vh;
-    width: 75vh;
+      width: 100%; /* Full width on smaller screens */
   }
   
   .cardp p {
-    font-size: 2rem;
-    max-width: 66%;
+    font-size: 0.8rem;
     margin-left: 18px;
-    margin-top: 150px;
+    margin-top: 59px; /* Full width text on smaller screens */
   }
-  .descrip {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  /* Additional styles can be added as needed */
-  
+}

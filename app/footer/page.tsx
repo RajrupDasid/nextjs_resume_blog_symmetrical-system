@@ -1,8 +1,8 @@
 import React from "react";
-// import "../assets/css/footer.scss";
 import "@/public/assets/css/footer.scss";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 import { BiMailSend } from "react-icons/bi";
+
 export default function Footer() {
   return (
     <>
@@ -25,6 +25,10 @@ export default function Footer() {
           <div className="send-icon">
             <BiMailSend />
           </div>
+        </div>
+        <div className="footer-links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-and-conditions">Terms and Conditions</a>
         </div>
         <div className="copyright">© 2023 Rajrup.dev. All rights reserved.</div>
       </footer>

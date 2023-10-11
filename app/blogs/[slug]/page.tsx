@@ -3,6 +3,7 @@ import DOMPurify from "isomorphic-dompurify";
 import axios from "axios";
 // import "@/assets/css/BlogDetail.scss";
 import "@/public/assets/css/BlogDetail.scss";
+import Image from "next/image";
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 
@@ -15,7 +16,6 @@ const headers = {
 //   headers: headers,
 // });
 const getData = async (slug: string): Promise<any> => {
-
   const url = process.env.NEXT_PUBLIC_API_URL;
   const api = `${url}${slug}`;
   const res = await axios.get(api, {
@@ -44,13 +44,21 @@ const SinglePage = async ({
 }): Promise<JSX.Element> => {
   const { slug } = params;
   const post = await getData(slug);
+  const api = process.env.NEXT_PUBLIC_IMAGE_API_URL;
+  const imageurl = `${api}/${post.thumbnail}`;
   const clean = DOMPurify.sanitize(post.content);
   return (
     <>
       <div className="blog-detail-container">
         <div className="left-column">
           <div className="header">
-            {/* <Image src={} alt="Blog Header" className="blog-header-image" /> */}
+            <Image
+              src={imageurl}
+              alt="Blog Header"
+              width={370}
+              height={300}
+              className="blog-header-image"
+            />
           </div>
           <div className="blog-details">
             <h1 className="blog-title">{post.title}</h1>

@@ -11,18 +11,22 @@
       margin-bottom: 20px;
 
       .blog-header-image {
-        max-width: 100%;
-        height: auto;
+        margin-left: 50vh;
       }
+      @media (max-width:600px){
+        margin-left: -50vh;
+      }
+
     }
+
 /* Add this to your existing CSS */
 
 .comment-box {
-  margin-top: 20px;
+  margin-top: 100px;
 
   h2 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
 
   .comment {
@@ -49,9 +53,9 @@
   }
 
   textarea {
-    width: 85%;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 22%;
+    padding: 20px;
+    margin-bottom: 45px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
@@ -64,10 +68,11 @@
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 13px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: -32vh;
   }
 
   button:hover {
@@ -113,5 +118,15 @@
         /* Add styles for popular posts and topics here */
       }
     }
+  }
+}
+@media (max-width:600px){
+  .blog-detail-container{
+    overflow-y: hidden;
+    overflow: hidden;
+  }
+  .blog-description p{
+    max-width: 100%;
+    font-size: 0.8rem;
   }
 }
