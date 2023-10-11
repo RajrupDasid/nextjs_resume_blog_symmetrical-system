@@ -15,8 +15,8 @@ export default function About() {
           <Image src={coder} alt="coder" />
         </div>
         <div className="rightabout">
+          <h1>My Name is Rajrup Das</h1>
           <p>
-            My Name is Rajrup Das
             <span className="leamon">
               I am a professional Fullstack Engineer
             </span>
@@ -34,6 +34,21 @@ export default function About() {
                   necessitatibus doloremque enim ratione facilis veniam
                   similique facere sed, omnis porro quisquam blanditiis tenetur!
                 </p>
+              </div>
+            </div>
+          </div>
+          <div className="onthe">
+            <div className="boxx2">
+              <div className="cardp">
+                <div className="descrip">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Velit nisi neque iure praesentium in, laudantium itaque
+                    necessitatibus doloremque enim ratione facilis veniam
+                    similique facere sed, omnis porro quisquam blanditiis
+                    tenetur!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
