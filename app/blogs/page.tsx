@@ -4,11 +4,12 @@ import axios from "axios";
 import "@/public/assets/css/blogpage.scss";
 import Link from "next/link";
 import DOMPurify from "dompurify";
-
+import Image from "next/image";
 export interface BlogPost {
   id: number;
   title: string;
   content: string;
+  thumbnail: string;
   slug: string;
 }
 
@@ -18,6 +19,7 @@ export default function Blog() {
   const apk = process.env.NEXT_PUBLIC_API_KEY;
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
   const api = process.env.NEXT_PUBLIC_API_URL;
+  const imageapi = process.env.NEXT_PUBLIC_IMAGE_API_URL;
 
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
@@ -62,10 +64,10 @@ export default function Blog() {
 
   const truncateContent = (content: string) => {
     // Display between 40 and 50 characters
-    if (content.length <= 100000) {
+    if (content.length <= 1000) {
       return content;
     }
-    return content.slice(0, 90) + "...";
+    return content.slice(0, 900) + "...";
   };
 
   return (
@@ -73,20 +75,29 @@ export default function Blog() {
       <div className="blog-left">
         {blogPosts.map((post) => (
           <div className="blog-card" key={post.id}>
-            <h2>{post.title}</h2>
-            {/* Sanitize and render the content */}
-            <div
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(truncateContent(post.content)),
-              }}></div>
-            {/* Use Link to navigate to the individual blog post page */}
-            <Link href={`/blogs/${encodeURIComponent(post.slug)}`}>
-              Read More
-            </Link>
+            <div className="card-image">
+              <Image
+                src={imageapi + post.thumbnail}
+                alt="post images"
+                width={100} // Set the desired width
+                height={100} // S
+              />
+            </div>
+            <div className="card-content">
+              <h2>{post.title}</h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(truncateContent(post.content)),
+                }}></div>
+              <Link href={`/blogs/${encodeURIComponent(post.slug)}`}>
+                Read More
+              </Link>
+            </div>
           </div>
         ))}
         {isLoading && <p>Loading...</p>}
       </div>
+
       <div className="blog-right">
         <div className="recent-posts">
           <h3>Recent Posts</h3>
