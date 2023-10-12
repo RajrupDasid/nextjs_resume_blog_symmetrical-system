@@ -14,13 +14,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20.7.0"
-
       - name: Install packages
         run: |
           node --version
           npm install -g pnpm
           pnpm --version
-          pnpm install
+          pnpm install package.json
 
       - name: Build static files
         run: |
