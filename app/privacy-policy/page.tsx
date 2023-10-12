@@ -161,7 +161,6 @@ const Privacy = () => {
         You can choose to disable cookies through your individual browser
         options. To know more detailed information about cookie management with
         specific web browsers, it can be found at the browsers respective
-        websites.
       </p>
 
       <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
@@ -225,9 +224,7 @@ const Privacy = () => {
         If you make a request, we have one month to respond to you. If you would
         like to exercise any of these rights, please contact us.
       </p>
-
       <h2>Childrens Information</h2>
-
       <p>
         Another part of our priority is adding protection for children while
         using the internet. We encourage parents and guardians to observe,
