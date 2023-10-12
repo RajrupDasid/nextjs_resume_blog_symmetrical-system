@@ -15,10 +15,10 @@ export default function Home() {
       <main>
         <section className="firstSection">
           <div className="leftSection">
-            Greetings
-            <span className="purple">Visitors</span>
-            <div>We are here to achieve </div>
-            <span className="mxxu">your digital dreams</span>
+            Greetings,
+            <span className="purple">Visitors!</span>
+            <div>We&apos;re here to help you achieve your </div>
+            <span className="mxxu">digital dreams</span>
           </div>
           <div className="rightSection">
             <Image src={softwareDevelopment} alt="softwaredevelopment" />
@@ -35,10 +35,10 @@ export default function Home() {
         <ThirdSection />
 
         <hr />
-        <section className="fourthSection">
+        {/* <section className="fourthSection">
           <FourthSection />
         </section>
-        <hr />
+        <hr /> */}
       </main>
     </>
   );

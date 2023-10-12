@@ -4,6 +4,7 @@ import axios from "axios";
 // import "@/assets/css/BlogDetail.scss";
 import "@/public/assets/css/BlogDetail.scss";
 import Image from "next/image";
+import { Metadata } from "next";
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 
@@ -11,10 +12,6 @@ const headers = {
   Authorization: `${apl}  ${apk}`,
 };
 
-// await fetch("http://example.com/api/endpoint", {
-//   method: "GET", // or "POST" or other HTTP methods
-//   headers: headers,
-// });
 const getData = async (slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
   const api = `${url}${slug}`;
@@ -25,17 +22,48 @@ const getData = async (slug: string): Promise<any> => {
   });
   return res.data;
 };
-
 interface Params {
   slug: string;
 }
-const truncateContent = (content: string) => {
-  // Display between 40 and 50 characters
-  if (content.length <= 100000) {
-    return content;
+function removeTags(str: string) {
+  if (str === null || str === "") return "";
+  else str = str.toString();
+  return str.replace(/(<([^>]+)>)/gi, "");
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const singlepost = await getData(params.slug);
+  const clean = removeTags(singlepost.content);
+  const desc: string = clean.substring(0, 150);
+  if (!singlepost) {
+    return {
+      title: "Not found",
+      description: "This page is not found",
+    };
   }
-  return content.slice(0, 9000) + "...";
-};
+  return {
+    title: singlepost.title,
+    description: desc,
+    alternates: {
+      canonical: `/blogs/${desc}`,
+      languages: {
+        "en-US": `en-US/blogs/${desc}`,
+      },
+    },
+  };
+}
+
+// const truncateContent = (content: string) => {
+//   // Display between 40 and 50 characters
+//   if (content.length <= 100000) {
+//     return content;
+//   }
+//   return content.slice(0, 9000) + "...";
+// };
 
 const SinglePage = async ({
   params,
@@ -65,7 +93,7 @@ const SinglePage = async ({
             <div
               className="blog-description"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(truncateContent(post.content)),
+                __html: DOMPurify.sanitize(post.content),
               }}></div>
             <div className="comment-box">
               <h2>Comments</h2>
@@ -92,6 +120,7 @@ const SinglePage = async ({
         <div className="right-column">
           <div className="post-list">
             <h2>Post List</h2>
+
             <div className="most-popular-posts">
               <h3>Most Popular Posts</h3>
               {/* Add popular posts here */}

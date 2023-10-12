@@ -16,6 +16,48 @@ const services = [
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Front-end Development",
+    description:
+      "We specialize in building interactive and user-friendly interfaces.",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
   // Add more services as needed
 ];
 

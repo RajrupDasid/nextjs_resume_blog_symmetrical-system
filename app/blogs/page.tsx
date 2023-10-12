@@ -13,6 +13,7 @@ export interface BlogPost {
   content: string;
   thumbnail: string;
   slug: string;
+  metadata: string;
 }
 
 export default function Blog() {
