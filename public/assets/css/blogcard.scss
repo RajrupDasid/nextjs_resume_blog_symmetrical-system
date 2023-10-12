@@ -20,9 +20,9 @@ $desktop: 1024px;
 
 .card {
 	width: 300px;
-	margin: 10px;
+	margin: 20px;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-    max-height: 390px;
+    max-height: 370px;
 
 	&:hover {
 		.card__caption {

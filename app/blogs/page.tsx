@@ -85,9 +85,7 @@ export default function Blog() {
                   height={700}
                 />
                 <figcaption className="card__caption">
-                  <h2 className="card__title">
-                    NASA Has Found Hundreds Of Potential New Planets
-                  </h2>
+                  <h2 className="card__title">{post.title}</h2>
                   <div
                     className="card__snippet"
                     dangerouslySetInnerHTML={{
