@@ -7,33 +7,37 @@ export default function ThirdSection() {
     <>
       <section className="thirdSection">
         <span className="textgrey">Projects</span>
-        <h1>My projects section</h1>
+        <h1>Some of our recent projects</h1>
         <div className="project-cards">
           <div className="project-card">
-            <h2>Project 1</h2>
+            <h2>Ecommerce</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-              dolorum eveniet illum molestiae neque soluta architecto, expedita
-              est, tempora culpa nulla amet mollitia totam error ipsum ea unde
-              atque eaque?
+              Leveraging our expertise across various technologies, we
+              successfully resolved a client&apos;s e-commerce challenge. We
+              transformed their outdated PHP site by rebuilding it from the
+              ground up, using cutting-edge technologies. We replaced legacy
+              code with a fresh design implemented in React and powered the
+              platform with Django.
             </p>
           </div>
           <div className="project-card">
-            <h2>Project 2</h2>
+            <h2>Cybersecurity project</h2>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
-              odio aliquam quod pariatur sunt expedita ipsam iure deserunt sed
-              sequi. Veritatis incidunt aperiam quos. Eos id odit ipsum illum
-              omnis.
+              We have developed a cybersecurity project that includes a malware
+              and phishing detection web tool. This tool allows users to scan
+              any URL, and our machine learning models determine whether the
+              site is safe or not. One of our clients has purchased and
+              integrated this project into one of their tools.
             </p>
           </div>
           <div className="project-card">
-            <h2>Project 3</h2>
+            <h2>Cloud scanner</h2>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
-              eaque obcaecati assumenda. Beatae modi laudantium, quis rem
-              consectetur nemo incidunt voluptas similique, ab aspernatur cumque
-              harum sunt natus dolor excepturi.
+              We&apos;ve created a cloud server vulnerability detection tool for
+              a cybersecurity company, a challenging project that harnesses the
+              power of FastAPI and the flexibility of Django. Our tool
+              efficiently detects and fixes server configuration issues,
+              ensuring your cloud environment remains secure.
             </p>
           </div>
         </div>
@@ -41,5 +45,3 @@ export default function ThirdSection() {
     </>
   );
 }
-
-// export default ThirdSection;

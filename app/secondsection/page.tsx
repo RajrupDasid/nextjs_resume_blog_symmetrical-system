@@ -5,7 +5,7 @@ import "@/public/assets/css/master.scss";
 const SecondSection: React.FC = () => {
   return (
     <section className="secondSection">
-      <span className="textgrey">What I have done till now</span>
+      <span className="textgrey">What projects we work till now</span>
       <h1>Work Experience</h1>
       <div className="box">
         <div className="vertical">
@@ -52,39 +52,6 @@ const SecondSection: React.FC = () => {
             stack.
           </div>
         </div>
-        {/* <div className="vertical">
-          <img src={Developer} alt="developer" className="image-top" />
-          <div className="vertical-title">
-            Fullstack Development (2020 SEP - Now)
-          </div>
-          <div className="verticle-desc">
-            I had worked in 3 different companies as Fullstack Developer. As a
-            Fullstack developer I have used React and Django as my primary tech
-            stack.
-          </div>
-        </div>
-        <div className="vertical">
-          <img src={Developer} alt="developer" className="image-top" />
-          <div className="vertical-title">
-            Fullstack Development (2020 SEP - Now)
-          </div>
-          <div className="verticle-desc">
-            I had worked in 3 different companies as Fullstack Developer. As a
-            Fullstack developer I have used React and Django as my primary tech
-            stack.
-          </div>
-        </div>
-        <div className="vertical">
-          <img src={Developer} alt="developer" className="image-top" />
-          <div className="vertical-title">
-            Fullstack Development (2020 SEP - Now)
-          </div>
-          <div className="verticle-desc">
-            I had worked in 3 different companies as Fullstack Developer. As a
-            Fullstack developer I have used React and Django as my primary tech
-            stack.
-          </div>
-        </div> */}
       </div>
 
       <div className="mobile-box">
