@@ -51,7 +51,7 @@ $desktop: 1024px;
 		overflow: hidden;
 		
 		@include breakpoint(desktop) {
-			max-height: 500px;
+			max-height: 370px;
 		}
 
 		&::after {

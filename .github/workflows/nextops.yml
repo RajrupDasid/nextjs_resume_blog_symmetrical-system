@@ -23,4 +23,4 @@ jobs:
 
       - name: Build static files
         run: |
-          pnpm run build
+          pnpm next build
