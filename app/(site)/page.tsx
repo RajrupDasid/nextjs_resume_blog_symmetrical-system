@@ -15,10 +15,10 @@ export default function Home() {
       <main>
         <section className="firstSection">
           <div className="leftSection">
-            Hi, My name is
-            <span className="purple">Rajrup</span>
-            <div>I am a Passionate</div>
-            <span className="mxxu">Programmer</span>
+            Greetings
+            <span className="purple">Visitors</span>
+            <div>We are here to achieve </div>
+            <span className="mxxu">your digital dreams</span>
           </div>
           <div className="rightSection">
             <Image src={softwareDevelopment} alt="softwaredevelopment" />

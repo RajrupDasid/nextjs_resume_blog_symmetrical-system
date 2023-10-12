@@ -8,7 +8,7 @@ export default function NavBar() {
   return (
     <header>
       <nav>
-        <div className="left">Rajrup.dev</div>
+        <div className="left">Webstackpros.net</div>
         <div className="right">
           <ul>
             <li>

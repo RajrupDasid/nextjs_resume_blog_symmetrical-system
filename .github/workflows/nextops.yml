@@ -9,24 +9,7 @@ jobs:
   build-and-deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
-    env:
-      BUCKET: ${{ secrets.BUCKET_NAME }}
-      DIST: .next
-      DIST_ID: ${{ secrets.DIST_ID }}
-      NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
-      NEXT_PUBLIC_API_PARAMS: ${{ secrets.NEXT_PUBLIC_API_PARAMS }}
-      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
       - name: Node management
         uses: actions/setup-node@v3
         with:
@@ -38,12 +21,6 @@ jobs:
           npm install -g pnpm
           pnpm --version
           pnpm install
-
-      - name: Set environment variables
-        run: |
-          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}" >> .env.local
-          echo "NEXT_PUBLIC_API_PARAMS=${{ secrets.NEXT_PUBLIC_API_PARAMS }}" >> .env.local
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.local
 
       - name: Build static files
         run: |

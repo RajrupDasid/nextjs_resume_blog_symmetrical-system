@@ -5,6 +5,8 @@ import "@/public/assets/css/blogpage.scss";
 import Link from "next/link";
 import DOMPurify from "dompurify";
 import Image from "next/image";
+import "@/public/assets/css/blogcard.scss";
+
 export interface BlogPost {
   id: number;
   title: string;
@@ -19,8 +21,6 @@ export default function Blog() {
   const apk = process.env.NEXT_PUBLIC_API_KEY;
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
   const api = process.env.NEXT_PUBLIC_API_URL;
-  const imageapi = process.env.NEXT_PUBLIC_IMAGE_API_URL;
-
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -73,28 +73,37 @@ export default function Blog() {
   return (
     <div className="blog-page">
       <div className="blog-left">
-        {blogPosts.map((post) => (
-          <div className="blog-card" key={post.id}>
-            <div className="card-image">
-              <Image
-                src={imageapi + post.thumbnail}
-                alt="post images"
-                width={100} // Set the desired width
-                height={100} // S
-              />
+        <div className="container">
+          {blogPosts.map((post) => (
+            <div className="card" key={post.id}>
+              <figure className="card__thumb">
+                <Image
+                  src={post.thumbnail}
+                  alt="post images"
+                  className="card__background"
+                  width={400}
+                  height={700}
+                />
+                <figcaption className="card__caption">
+                  <h2 className="card__title">
+                    NASA Has Found Hundreds Of Potential New Planets
+                  </h2>
+                  <div
+                    className="card__snippet"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(truncateContent(post.content)),
+                    }}></div>
+                  <Link
+                    href={`/blogs/${encodeURIComponent(post.slug)}`}
+                    className="card__button">
+                    Read More
+                  </Link>
+                </figcaption>
+              </figure>
             </div>
-            <div className="card-content">
-              <h2>{post.title}</h2>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(truncateContent(post.content)),
-                }}></div>
-              <Link href={`/blogs/${encodeURIComponent(post.slug)}`}>
-                Read More
-              </Link>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
         {isLoading && <p>Loading...</p>}
       </div>
 

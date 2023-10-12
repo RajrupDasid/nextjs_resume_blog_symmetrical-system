@@ -2,12 +2,14 @@ import React from "react";
 import "@/public/assets/css/footer.scss";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 import { BiMailSend } from "react-icons/bi";
+import Link from "next/link";
+
 
 export default function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="user-name">Rajrup Das</div>
+        <div className="user-name">Webstackpros.net</div>
         <div className="social-icons">
           <FaFacebook />
           <FaTwitter />
@@ -27,10 +29,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-links">
-          <a href="/privacy-policy">Privacy Policy</a>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           <a href="/terms-and-conditions">Terms and Conditions</a>
         </div>
-        <div className="copyright">© 2023 Rajrup.dev. All rights reserved.</div>
+        <div className="copyright">
+          © 2023 Webstackpros.net. All rights reserved.
+        </div>
+
       </footer>
     </>
   );
