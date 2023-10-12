@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 import { BiMailSend } from "react-icons/bi";
 import Link from "next/link";
 
+
 export default function Footer() {
   return (
     <>
@@ -34,6 +35,7 @@ export default function Footer() {
         <div className="copyright">
           © 2023 Webstackpros.net. All rights reserved.
         </div>
+
       </footer>
     </>
   );

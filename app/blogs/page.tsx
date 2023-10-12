@@ -6,6 +6,7 @@ import Link from "next/link";
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import "@/public/assets/css/blogcard.scss";
+
 export interface BlogPost {
   id: number;
   title: string;
@@ -102,8 +103,10 @@ export default function Blog() {
             </div>
           ))}
         </div>
+
         {isLoading && <p>Loading...</p>}
       </div>
+
       <div className="blog-right">
         <div className="recent-posts">
           <h3>Recent Posts</h3>

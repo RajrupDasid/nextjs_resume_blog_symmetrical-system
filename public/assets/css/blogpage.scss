@@ -30,7 +30,6 @@
     &::-webkit-scrollbar-thumb:hover {
       background-color: #0056b3; /* Color when hovered */
     }
-
   }
 
   
@@ -127,9 +126,9 @@
 
 }
 
-
 @media (max-width:600px){
   .blog-right{
     display: none;
   }
 }
+
