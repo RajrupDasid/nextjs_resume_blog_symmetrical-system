@@ -8,7 +8,12 @@
   border-radius: 50%; /* Makes it round */
   background-color: rgb(4, 4, 4);
 }
+.weapon{
+  margin-top: 50px;
+    margin-bottom: 60px;
 
+    margin-left: 189px;
+}
 .techsection{
   height: 40vh;
 }
@@ -42,6 +47,12 @@ margin-top: 90px;
     align-items: center; /* Center icons vertically */
     gap:6px
   }
+
+    .weapon{
+      margin-top: 50px;
+        margin-bottom: 60px;
+        margin-left: 55px;
+    }
   .top .tech2{
     margin: 0px ;
   }

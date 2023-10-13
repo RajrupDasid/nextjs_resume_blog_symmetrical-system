@@ -1,6 +1,11 @@
 import React from "react";
 import ServiceCard from "./servicecard/page";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Our services | Webstackpros.net",
+  description:
+    "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
+};
 const services = [
   {
     title: "Web Development",

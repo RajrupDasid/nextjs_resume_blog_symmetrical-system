@@ -10,10 +10,8 @@
 body {
    
     // background: rgb(161, 151, 255);
-    background: linear-gradient(
-      45deg,
-      #002167 ,
-      #061b49 
+    background: (
+      #002366
     );
     background-size: 400% 400%;
     // animation: gradient  15s ease infinite, colorChange 1s ease infinite alternate;
@@ -34,47 +32,47 @@ body {
 
   */
  
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  // @keyframes gradient {
+  //   0% {
+  //     background-position: 0% 50%;
+  //   }
+  //   50% {
+  //     background-position: 100% 50%;
+  //   }
+  //   100% {
+  //     background-position: 0% 50%;
+  //   }
+  // }
   
-  @keyframes colorChange {
-    0% {
-      background-color: #ee7752;
-    }
-    12.5% {
-      background-color: #e73c7e;
-    }
-    25% {
-      background-color: #23a6d5;
-    }
-    37.5% {
-      background-color: #23d5ab;
-    }
-    50% {
-      background-color: #ff3333;
-    }
-    62.5% {
-      background-color: #005cb8;
-    }
-    75% {
-      background-color: #3498db;
-    }
-    87.5% {
-      background-color: #e74c3c;
-    }
-    100% {
-      background-color: #2ecc71;
-    }
-  }
+  // @keyframes colorChange {
+  //   0% {
+  //     background-color: #ee7752;
+  //   }
+  //   12.5% {
+  //     background-color: #e73c7e;
+  //   }
+  //   25% {
+  //     background-color: #23a6d5;
+  //   }
+  //   37.5% {
+  //     background-color: #23d5ab;
+  //   }
+  //   50% {
+  //     background-color: #ff3333;
+  //   }
+  //   62.5% {
+  //     background-color: #005cb8;
+  //   }
+  //   75% {
+  //     background-color: #3498db;
+  //   }
+  //   87.5% {
+  //     background-color: #e74c3c;
+  //   }
+  //   100% {
+  //     background-color: #2ecc71;
+  //   }
+  // }
 //   linear body ends here
 nav{
     display: flex;
@@ -112,7 +110,7 @@ nav ul li::before {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--primary);
+    background: #ffffff;
     opacity: 0;
     transform: scaleX(0);
     transform-origin: 0 0;
@@ -210,20 +208,106 @@ font-size: 1.8rem;
 .verticle-desc{
 position: relative;
 top: 90px;
-color: grey;
+color: rgb(236, 235, 235);
 width: 150px;
-font-size: 10px;
+font-size: 11px;
 }
 
 
 nav .menu{
     display: none;
     transition: 0.3s;
+    opacity: 0.7;
+    pointer-events: auto;
 }
 
 nav .menu svg {
     color: #ffffff;
     font-size: 1.8em;
+}
+// Mobile nav bar
+:root{
+  --primary: rgb(8, 8, 61);
+}
+
+.menu{
+  display: none;
+  transition: 0.3s;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+.menu HiMenu {
+  color: #ffffff;
+  font-size: 1.8em;
+}
+
+.menu.active{
+  transform: rotateZ(45deg);
+}
+
+
+/* mobile menu  the icon*/
+.nav-mobile{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 900;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav-mobile.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-mobile li{
+  position: relative;
+  list-style: none;
+}
+
+
+
+.nav-mobile li a{
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.5s;
+  padding: 10px;
+}
+
+.nav-mobile li::before{
+  position: absolute;
+  bottom: -10px;   
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  height: 2px;
+  width: 50%;
+  background: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.nav-mobile li:hover::before{
+  opacity: 1;
+  visibility: visible;
+  background: orangered;
 }
 
 @media(max-width:600px){
@@ -238,7 +322,7 @@ nav .menu svg {
         display: block;
     }
     .firstSection > div {
-        width: 40%;
+        width: 70%;
     }
     .purple{
         margin-left: 10px;
