@@ -43,10 +43,16 @@
 .newsletter {
   display: flex;
   align-items: center;
-
+.newslabel{
+  margin-left: 135px;
+}
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 16px;
+    .newslabel{
+      margin-left: -14px;
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -82,7 +88,7 @@
 }
 
 .footer-links {
-  margin-top: 160px; /* Default space between the newsletter and links */
+  margin-top: 91px; /* Default space between the newsletter and links */
 
   a {
     text-decoration: none;
@@ -93,6 +99,10 @@
       text-decoration: underline;
     }
   }
+  .openweb{
+    margin-bottom: 57px;
+    margin-left: 70px;
+  }
 
   @media (max-width: 768px) {
     /* Adjust styles for screens up to 768px width */
@@ -100,6 +110,9 @@
 
     a {
       font-size: 14px; /* Reduce the text size on smaller screens */
+    }
+    .openweb{
+      margin-left: 0px;
     }
   }
 }

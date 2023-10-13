@@ -4,14 +4,19 @@ import { TbBrandPython } from "react-icons/tb";
 import { SiCsharp } from "react-icons/si";
 import { FaNode } from "react-icons/fa6";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiBun } from "react-icons/si";
+// import { SiBun } from "react-icons/si";
 import { SiGithub } from "react-icons/si";
 import { SiMongodb } from "react-icons/si";
 import { FaRust } from "react-icons/fa";
+import { SiElixir } from "react-icons/si";
 export default function TechStack() {
   return (
     <div className="tcontainer">
       <div className="techstack">
+        <div className="weapon">
+          <span className="textgrey">Our experties</span>
+          <h1> We use latest Tech Stacks</h1>
+        </div>
         <div className="toptech">
           <div className="top">
             <div className="tech1 icon-container">
@@ -49,7 +54,7 @@ export default function TechStack() {
           <div className="bottom">
             <div className="tech1 icon-container">
               <p>
-                <SiBun size={40} />
+                <SiElixir size={40} />
               </p>
             </div>
           </div>
