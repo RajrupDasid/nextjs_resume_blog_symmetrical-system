@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"; // Import the Image component from "next/image"
 // import styles from "../assets/css/services.scss";
-import "@/public/assets/css/projects.scss";
+import "@/public/assets/css/services.scss";
 
 interface ServiceCardProps {
   title: string;
