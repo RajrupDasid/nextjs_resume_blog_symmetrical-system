@@ -4,9 +4,9 @@
 
   .left-column {
     flex: 2; /* Adjust the ratio between left and right columns */
-    padding-right: 20px;
+    padding-right: 220px;
     border-right: 1px solid #ccc;
-
+    margin-left: 50px;
     .header {
       margin-bottom: 20px;
 
@@ -85,13 +85,15 @@
 
     .blog-details {
       .blog-title {
-        font-size: 24px;
+        font-size: 60px;
         margin-bottom: 10px;
       }
 
       .blog-description {
-        font-size: 16px;
+        font-size: 20px;
         margin-bottom: 20px;
+        line-height: 40px;
+        margin-top: 50px;
       }
 
       /* Add comment section styles here */
