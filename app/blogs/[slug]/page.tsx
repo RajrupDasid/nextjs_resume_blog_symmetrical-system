@@ -1,10 +1,9 @@
-import { error } from "console";
 import DOMPurify from "isomorphic-dompurify";
 import axios from "axios";
-// import "@/assets/css/BlogDetail.scss";
 import "@/public/assets/css/BlogDetail.scss";
 import Image from "next/image";
 import { Metadata } from "next";
+
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 
@@ -16,6 +15,7 @@ const getData = async (slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
   const api = `${url}${slug}`;
   const res = await axios.get(api, {
+    timeout: 90000000,
     headers: {
       Authorization: `${apl} ${apk}`,
     },
@@ -57,14 +57,6 @@ export async function generateMetadata({
   };
 }
 
-// const truncateContent = (content: string) => {
-//   // Display between 40 and 50 characters
-//   if (content.length <= 100000) {
-//     return content;
-//   }
-//   return content.slice(0, 9000) + "...";
-// };
-
 const SinglePage = async ({
   params,
 }: {
@@ -74,6 +66,8 @@ const SinglePage = async ({
   const post = await getData(slug);
   const imageurl = `${post.thumbnail}`;
   const clean = DOMPurify.sanitize(post.content);
+  const apidate = `${post.updated}`;
+  const fixdate = apidate.toString().slice(0, 19).replace("T", " @ ") + " UTC";
   return (
     <>
       <div className="blog-detail-container">
@@ -89,41 +83,23 @@ const SinglePage = async ({
           </div>
           <div className="blog-details">
             <h1 className="blog-title">{post.title}</h1>
-            {/* <p className="blog-description">{clean}</p> */}
+            <h6>
+              Last updated :- <span>{fixdate}</span>
+            </h6>
+
             <div
               className="blog-description"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(post.content),
               }}></div>
-            <div className="comment-box">
-              <h2>Comments</h2>
-              <div className="comment-list">
-                {/* {comments.map((comment, index) => (
-                  <div key={index} className="comment">
-                    <p className="comment-text">{comment}</p>
-                    <p className="comment-author">Author: John Doe</p>
-                  </div>
-                ))} */}
-              </div>
-              <div className="comment-form">
-                <h3>Add a Comment</h3>
-                <textarea
-                  rows={4}
-                  placeholder="Write your comment here..."
-                  // value=
-                ></textarea>
-                <button>Submit Comment</button>
-              </div>
-            </div>
           </div>
         </div>
         <div className="right-column">
           <div className="post-list">
             <h2>Post List</h2>
-
+            {post.title}
             <div className="most-popular-posts">
               <h3>Most Popular Posts</h3>
-              {/* Add popular posts here */}
             </div>
             <div className="topics">
               <h3>Topics</h3>

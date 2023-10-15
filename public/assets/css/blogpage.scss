@@ -132,3 +132,27 @@
   }
 }
 
+@media (max-width:1600px){
+  .card-container{
+  max-height: 500px;
+  margin-left: 0px;
+  margin-right: 105px;
+  }
+}
+
+@media (max-width:980px){
+  .cardz{
+    height: 300px
+  }
+  .cardz .card-content h2 {
+    font-size: 0.7rem;
+    margin-bottom: 0px;
+    color: #fff;
+  }
+  .cardz .card-content p {
+    font-size: 0.7rem;
+    line-height: 1.1rem;
+    color: #eee;
+    width: 185px;
+  }
+}

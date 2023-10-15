@@ -3,11 +3,40 @@ import "@/public/assets/css/about.scss";
 import coder from "@/public/assets/images/coder.jpeg";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { NextSeo } from "next-seo";
+
 export const metadata: Metadata = {
-  title: "About us | Webstackpros.net",
+  title: "Webstackpros.net | About Us",
   description:
-    "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
+    "Webstackpros.net about us - Who we are? what we do? What is our motto ? Get full information about our workflows follow us on github",
 };
+/*
+  <NextSeo
+        title="Webstackpros.net| about us"
+        description="Webstackpros.net about us - Who we are? what we do? What is our motto ? Get full information about our workflows follow us on github"
+        canonical="https://www.webstackpros.net/about"
+        openGraph={{
+          url: "https://www.webstackpros.net/about",
+          title: "Open Graph Title",
+          description: "Open Graph Description",
+          images: [
+            {
+              url: "https://www.webstackpros.net/image.jpg",
+              width: 800,
+              height: 600,
+              alt: "Og Image Alt",
+              type: "image/jpeg",
+            },
+          ],
+          siteName: "Webstackpros.net",
+        }}
+        twitter={{
+          handle: "@webstackpros",
+          site: "@main",
+          cardType: "summary_large_image",
+        }}
+      />
+*/
 export default function About() {
   return (
     <>
@@ -50,11 +79,16 @@ export default function About() {
               <div className="cardp">
                 <div className="descrip">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit nisi neque iure praesentium in, laudantium itaque
-                    necessitatibus doloremque enim ratione facilis veniam
-                    similique facere sed, omnis porro quisquam blanditiis
-                    tenetur!
+                    Open Source - We love open source and support opensource
+                    projects such as Linux Kernel,Python,Django,Nextjs and many
+                    more.In our opinion opensource is the backbone of our
+                    mordern techlife. We don&apos;t so much time to contribute
+                    in all of them logically , but we alaws try to raise bugs
+                    and possible fixes in their github or gitlab (depends)
+                    repository if any of appear in our use case . We love open
+                    source soo much that our website and much of our projects is
+                    opensourced on github. You can check contribute or even use
+                    them in your personal projects.
                   </p>
                 </div>
               </div>

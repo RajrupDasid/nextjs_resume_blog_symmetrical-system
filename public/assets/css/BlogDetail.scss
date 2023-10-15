@@ -1,12 +1,13 @@
 .blog-detail-container {
   display: flex;
   margin: 20px;
+  background-color: #000000;
 
   .left-column {
     flex: 2; /* Adjust the ratio between left and right columns */
-    padding-right: 20px;
+    padding-right: 220px;
     border-right: 1px solid #ccc;
-
+    margin-left: 50px;
     .header {
       margin-bottom: 20px;
 
@@ -85,13 +86,20 @@
 
     .blog-details {
       .blog-title {
-        font-size: 24px;
+        font-size: 60px;
         margin-bottom: 10px;
+        
+        
+        @media (max-width:600px) {
+          font-size: 30px;  
+
+        }
       }
 
       .blog-description {
-        font-size: 16px;
         margin-bottom: 20px;
+        line-height: 40px;
+        margin-top: 50px;
       }
 
       /* Add comment section styles here */
@@ -123,12 +131,27 @@
   }
 }
 @media (max-width:600px){
+  .blog-header-image{
+    display: none;
+    visibility: hidden;
+  }
+  .right-column{
+    display: none;
+    visibility: hidden;
+  }
   .blog-detail-container{
     overflow-y: hidden;
     overflow: hidden;
   }
-  .blog-description p{
-    max-width: 100%;
-    font-size: 0.8rem;
+  .blog-details{
+    
+  .blog-description{
+    max-width: 77%;
+    line-height: 30px;
+    overflow: hidden;
+    overflow-y: hidden;
   }
+}
+  
+  
 }
