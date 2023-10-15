@@ -4,6 +4,7 @@ import NavBar from "./navbar/page";
 import Footer from "./footer/page";
 import GoogleAnalytics from "./GoogleAnalytics";
 import ClarityMS from "./Clarity";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
