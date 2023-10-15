@@ -68,16 +68,16 @@ export default function Blog() {
     if (content.length <= 1000) {
       return content;
     }
-    return content.slice(0, 900) + "...";
+    return content.slice(0, 300) + "...";
   };
 
   return (
     <div className="blog-page">
       <div className="blog-left">
-        <div className="container">
+        <div className="card-container">
           {blogPosts.map((post) => (
-            <div className="card" key={post.id}>
-              <figure className="card__thumb">
+            <div className="cardz" key={post.id}>
+              <div className="card-image">
                 <Image
                   src={post.thumbnail}
                   alt="post images"
@@ -85,24 +85,23 @@ export default function Blog() {
                   width={400}
                   height={700}
                 />
-                <figcaption className="card__caption">
-                  <h2 className="card__title">{post.title}</h2>
-                  <div
-                    className="card__snippet"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(truncateContent(post.content)),
-                    }}></div>
-                  <Link
-                    href={`/blogs/${encodeURIComponent(post.slug)}`}
-                    className="card__button">
-                    Read More
-                  </Link>
-                </figcaption>
-              </figure>
+              </div>
+              <div className="card-content">
+                <h2>{post.title}</h2>
+                <div
+                  className="card__snippet"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(truncateContent(post.content)),
+                  }}></div>
+                <Link
+                  href={`/blogs/${encodeURIComponent(post.slug)}`}
+                  className="read-more">
+                  Read More
+                </Link>
+              </div>
             </div>
           ))}
         </div>
-
         {isLoading && <p>Loading...</p>}
       </div>
 
