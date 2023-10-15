@@ -86,6 +86,7 @@ const SinglePage = async ({
             <h6>
               Last updated :- <span>{fixdate}</span>
             </h6>
+
             <div
               className="blog-description"
               dangerouslySetInnerHTML={{
