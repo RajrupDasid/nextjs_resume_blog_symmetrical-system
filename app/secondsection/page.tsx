@@ -49,7 +49,7 @@ const SecondSection: React.FC = () => {
             applications.
           </div>
         </div>
-        <div className="vertical">
+        <div className="vertical mobileview">
           <Image src={Developer} alt="developer" className="image-top" />
           <div className="vertical-title">Cloud technology</div>
           <div className="verticle-desc">

@@ -361,7 +361,17 @@ nav .menu svg {
     .secondSection .verticle-desc{
         margin: 0 -19px;
     }
+
+
     
+}
+
+
+
+@media(max-width:1280px) {
+    .secondSection{
+        display: none;
+    }
 }
 
 /*

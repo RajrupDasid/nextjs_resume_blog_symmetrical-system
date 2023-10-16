@@ -2,15 +2,22 @@ import React from "react";
 import ServiceCard from "./servicecard/page";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Our services | Webstackpros.net",
+  title: "Our Projects | Webstackpros.net",
   description:
     "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
 };
 const services = [
   {
-    title: "Web Development",
+    title: "Security System",
     description:
-      "We create modern and responsive websites tailored to your needs.",
+      "We have experience developing robust security system that can prevent cloud to application exploit",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Ecommerce",
+    description:
+      "We specialize in building interactive and customer engaging Ecommerce sites for clients",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
@@ -22,44 +29,16 @@ const services = [
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
-    title: "Front-end Development",
+    title: "Devops",
     description:
-      "We specialize in building interactive and user-friendly interfaces.",
+      "We specialize in managing and developing complex cicd pipeline for complex projecs",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
-    title: "Front-end Development",
+    title: "Machine Learning and Analytics",
     description:
-      "We specialize in building interactive and user-friendly interfaces.",
-    imageUrl:
-      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
-  },
-  {
-    title: "Front-end Development",
-    description:
-      "We specialize in building interactive and user-friendly interfaces.",
-    imageUrl:
-      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
-  },
-  {
-    title: "Front-end Development",
-    description:
-      "We specialize in building interactive and user-friendly interfaces.",
-    imageUrl:
-      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
-  },
-  {
-    title: "Front-end Development",
-    description:
-      "We specialize in building interactive and user-friendly interfaces.",
-    imageUrl:
-      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
-  },
-  {
-    title: "Front-end Development",
-    description:
-      "We specialize in building interactive and user-friendly interfaces.",
+      "We specialize in building large machine learning models that can be used with any applications",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },

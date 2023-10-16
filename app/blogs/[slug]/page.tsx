@@ -13,7 +13,8 @@ const headers = {
 
 const getData = async (slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
-  const api = `${url}${slug}`;
+
+  const api = `${url}/api/blogs/${slug}`;
   const res = await axios.get(api, {
     timeout: 90000000,
     headers: {
