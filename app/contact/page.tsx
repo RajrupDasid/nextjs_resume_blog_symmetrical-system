@@ -1,17 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import "@/public/assets/css/contact.scss";
-// import { Metadata } from "next";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// export const metadata: Metadata = {
-//   title: "Contact us | Webstackpros.net",
-//   description:
-//     "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
-// };
-
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 const Contact = () => {
@@ -38,8 +30,6 @@ const Contact = () => {
           Authorization: `${apl} ${apk}`,
         },
       });
-      // Handle success or error here
-      // console.log("API response:", response.data);
       toast.success("Thank you for contacting we will contact with you soon");
       setFormData({
         username: "",
@@ -47,8 +37,6 @@ const Contact = () => {
         message: "",
       });
     } catch (error) {
-      // Handle the API request error
-      // console.error("API request error:", error);
       toast.error("Error submitting form. Please try again after some time");
     }
   };
