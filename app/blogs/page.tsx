@@ -25,7 +25,7 @@ export default function Blog() {
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${api}`, {
+      const response = await axios.get(`${api}/api/blogs/`, {
         headers: {
           Authorization: `${apl} ${apk}`,
         },
