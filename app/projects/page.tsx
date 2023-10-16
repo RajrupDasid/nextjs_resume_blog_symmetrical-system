@@ -15,30 +15,30 @@ const services = [
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
-    title: "Ecommerce",
+    title: "Ecommerce Management with CMS",
     description:
-      "We specialize in building interactive and customer engaging Ecommerce sites for clients",
+      "We have build a full operational ecommerce management system.",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
-    title: "Front-end Development",
+    title: "Phishing detection tool",
     description:
-      "We specialize in building interactive and user-friendly interfaces.",
+      "We have develop phishing and malware detection tool that can help to prevent any users from going into phishing or malware website",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
-    title: "Devops",
+    title: "Opensource contribution",
     description:
-      "We specialize in managing and developing complex cicd pipeline for complex projecs",
+      "We have developed and contributed to opensource projects to help opensource users and members",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
   {
     title: "Machine Learning and Analytics",
     description:
-      "We specialize in building large machine learning models that can be used with any applications",
+      "We have develop complex machinelearning model that can detect cloud configuration issues prior any exploit breach the system",
     imageUrl:
       "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
   },
