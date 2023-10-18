@@ -1,7 +1,7 @@
 .blog-detail-container {
   display: flex;
   margin: 20px;
-  background-color: #000000;
+  // background-color: #000000;
 
   .left-column {
     flex: 2; /* Adjust the ratio between left and right columns */
@@ -12,78 +12,18 @@
       margin-bottom: 20px;
 
       .blog-header-image {
-
-        margin-left: 1vh;
-
+        margin-left: 40vh;
+        max-width: 123%;
+        height: auto;
+      }
+      .tagsclass{
+        max-width: 25%;
       }
       @media (max-width:600px){
         margin-left: -50vh;
       }
 
     }
-
-/* Add this to your existing CSS */
-
-.comment-box {
-  margin-top: 100px;
-
-  h2 {
-    font-size: 20px;
-    margin-bottom: 40px;
-  }
-
-  .comment {
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    // background-color: #f9f9f9;
-
-    .comment-text {
-      font-size: 16px;
-    }
-
-    .comment-author {
-      font-size: 14px;
-      color: #888;
-      margin-top: 5px;
-    }
-  }
-}
-.comment-form {
-  h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  textarea {
-    width: 22%;
-    padding: 20px;
-    margin-bottom: 45px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-image: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-    resize: none;
-    font-size: 16px;
-  }
-
-  button {
-    background-image: linear-gradient(to bottom, #1fd825, #45a049);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 13px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: -32vh;
-  }
-
-  button:hover {
-    background-image: linear-gradient(to bottom, #45a049, #4caf50);
-  }
-}
-
-
     .blog-details {
       .blog-title {
         font-size: 60px;

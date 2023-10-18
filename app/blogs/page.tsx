@@ -13,6 +13,8 @@ export interface BlogPost {
   content: string;
   thumbnail: string;
   slug: string;
+  tags: string;
+  blog: string;
   metadata: string;
 }
 
@@ -68,39 +70,51 @@ export default function Blog() {
     if (content.length <= 1000) {
       return content;
     }
-    return content.slice(0, 300) + "...";
+    return content.slice(0, 150) + "...";
   };
-
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  const mode = process.env.NEXT_PUBLIC_ENV_STATE;
   return (
     <div className="blog-page">
       <div className="blog-left">
         <div className="card-container">
-          {blogPosts.map((post) => (
-            <div className="cardz" key={post.id}>
-              <div className="card-image">
-                <Image
-                  src={post.thumbnail}
-                  alt="post images"
-                  className="card__background"
-                  width={400}
-                  height={700}
-                />
+          <h1>Recent Post</h1>
+          <h6>Infinite scrolling</h6>
+          {blogPosts.map((post) => {
+            let imageurl = ""; // Define imageurl here
+            if (mode === "debug") {
+              imageurl = `${url}/${post.thumbnail}`;
+            } else {
+              imageurl = post.thumbnail;
+            }
+
+            return (
+              <div className="cardz" key={post.id}>
+                <div className="card-image">
+                  <Image
+                    src={imageurl} // Use the constructed imageurl
+                    alt="post images"
+                    className="card__background"
+                    width={400}
+                    height={700}
+                  />
+                </div>
+                <div className="card-content">
+                  <h2>{post.title}</h2>
+                  <div
+                    className="card__snippet"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(truncateContent(post.content)),
+                    }}></div>
+                  <Link
+                    href={`/blogs/${encodeURIComponent(post.slug)}`}
+                    className="read-more">
+                    Read More
+                  </Link>
+                </div>
               </div>
-              <div className="card-content">
-                <h2>{post.title}</h2>
-                <div
-                  className="card__snippet"
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(truncateContent(post.content)),
-                  }}></div>
-                <Link
-                  href={`/blogs/${encodeURIComponent(post.slug)}`}
-                  className="read-more">
-                  Read More
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         {isLoading && <p>Loading...</p>}
       </div>

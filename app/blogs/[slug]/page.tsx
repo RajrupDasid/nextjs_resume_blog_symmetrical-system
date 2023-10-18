@@ -6,10 +6,9 @@ import { Metadata } from "next";
 
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
-
-const headers = {
-  Authorization: `${apl}  ${apk}`,
-};
+const mode = process.env.NEXT_PUBLIC_ENV_STATE;
+const local = process.env.NEXT_PUBLIC_API_URL;
+let imageurl = "";
 
 const getData = async (slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
@@ -65,8 +64,12 @@ const SinglePage = async ({
 }): Promise<JSX.Element> => {
   const { slug } = params;
   const post = await getData(slug);
-  const imageurl = `${post.thumbnail}`;
-  const clean = DOMPurify.sanitize(post.content);
+  if (mode === "debug") {
+    imageurl = `${local}/${post.thumbnail}`;
+  } else {
+    imageurl = `${post.thumbnail}`;
+  }
+
   const apidate = `${post.updated}`;
   const fixdate = apidate.toString().slice(0, 19).replace("T", " @ ") + " UTC";
   return (
@@ -76,9 +79,9 @@ const SinglePage = async ({
           <div className="header">
             <Image
               src={imageurl}
-              alt="Blog Header"
+              alt="hello world"
               className="blog-header-image"
-              width={1200}
+              width={640}
               height={400}
             />
           </div>
@@ -87,7 +90,17 @@ const SinglePage = async ({
             <h6>
               Last updated :- <span>{fixdate}</span>
             </h6>
-
+            <div className="flex flex-wrap m-0">
+              <ul className="flex flex-wrap">
+                {post.tags.map((tag: any, index: any) => (
+                  <li
+                    className="tagsclass p-2 m-1  rounded border border-gray-300"
+                    key={index}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div
               className="blog-description"
               dangerouslySetInnerHTML={{
@@ -101,10 +114,6 @@ const SinglePage = async ({
             {post.title}
             <div className="most-popular-posts">
               <h3>Most Popular Posts</h3>
-            </div>
-            <div className="topics">
-              <h3>Topics</h3>
-              {/* Add topics here */}
             </div>
           </div>
         </div>

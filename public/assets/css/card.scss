@@ -35,10 +35,12 @@
     padding: 70px; /* Adjust padding for mobile view */
     width: calc(50% - 20px); /* Set width for each card (50% of the container width) */
     box-sizing: border-box; /* Include padding in the width calculation */
+    box-shadow: 26px 40px 48px rgba(23, 187, 141, 0.2);
+
     @media (max-width: 600px) {
-      width: 100%; /* Full width for mobile view */
-      padding: 27px;
-      margin: 0px -43px;
+    width: 131%;
+    padding: 19px;
+    margin: 0px -75px;
     }
 
     h2 {
