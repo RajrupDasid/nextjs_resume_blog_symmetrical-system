@@ -66,11 +66,7 @@ export default function Blog() {
   }, [fetchBlogPosts]);
 
   const truncateContent = (content: string) => {
-    // Display between 40 and 50 characters
-    if (content.length <= 1000) {
-      return content;
-    }
-    return content.slice(0, 150) + "...";
+    return content.substring(0, 150);
   };
   const url = process.env.NEXT_PUBLIC_API_URL;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
