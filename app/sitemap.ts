@@ -7,7 +7,7 @@ export interface BlogPost {
   thumbnail: string;
   slug: string;
   metadata: string;
-  update: Date; // Add a property for last modified date
+  updated: Date; // Add a property for last modified date
   post:string;
 }
 
@@ -29,13 +29,12 @@ async function fetchBlogPosts() {
 }
 
 export default async function sitemap() {
-  const url = "www.webstackpros.net"
+  const url = "https://www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
-
   const postUrls = posts.map((post:BlogPost) => ({
     url: `${baseUrl}/blogs/${encodeURIComponent(post.slug)}`,
-    lastModified: post.update,
+    lastModified: post.updated,
   }));
 
   return [
