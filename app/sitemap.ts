@@ -32,7 +32,6 @@ export default async function sitemap() {
   const url = "https://www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
-  
   const postUrls = posts.map((post:BlogPost) => ({
     url: `${baseUrl}/blogs/${encodeURIComponent(post.slug)}`,
     lastModified: post.updated,
