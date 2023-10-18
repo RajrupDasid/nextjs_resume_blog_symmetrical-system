@@ -29,7 +29,7 @@ async function fetchBlogPosts() {
 }
 
 export default async function sitemap() {
-  const url = process.env.NEXT_PUBLIC_API_URL
+  const url = "www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
 
