@@ -16,7 +16,7 @@ async function fetchBlogPosts() {
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
   const api = process.env.NEXT_PUBLIC_API_URL;
   try {
-    const response = await axios.get(`${api}`, {
+    const response = await axios.get(`${api}/api/blogs/`, {
       headers: {
         Authorization: `${apl} ${apk}`,
       },
@@ -29,8 +29,10 @@ async function fetchBlogPosts() {
 }
 
 export default async function sitemap() {
-  const baseUrl = "https://www.webstackpros.net";
+  const url = process.env.NEXT_PUBLIC_API_URL
+  const baseUrl = url;
   const posts = await fetchBlogPosts();
+
   const postUrls = posts.map((post:BlogPost) => ({
     url: `${baseUrl}/blogs/${encodeURIComponent(post.slug)}`,
     lastModified: post.update,
