@@ -2,7 +2,7 @@
 const nextConfig = {
   trailingSlash: true,
   images: {
-      domains: ["s3.us-west-2.amazonaws.com"]
+      domains: ["s3.us-west-2.amazonaws.com","127.0.0.1"]
     },
 reactStrictMode: true,
 webpack: (config) => {

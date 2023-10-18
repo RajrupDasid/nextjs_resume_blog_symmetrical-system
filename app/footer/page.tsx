@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="footer-links">
           <div className="openweb">
             <div className="opensource">
-              <Link href="/">Opensoure and We</Link>
+              <Link href="/">We are opensource</Link>
             </div>
           </div>
           <Link href="/privacy-policy">Privacy Policy</Link>
