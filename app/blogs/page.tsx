@@ -16,11 +16,13 @@ export interface BlogPost {
   tags: string;
   blog: string;
   metadata: string;
+  featured: boolean; // Add this property
 }
 
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>([]);
   const apk = process.env.NEXT_PUBLIC_API_KEY;
   const apl = process.env.NEXT_PUBLIC_API_PARAMS;
   const api = process.env.NEXT_PUBLIC_API_URL;
@@ -33,9 +35,29 @@ export default function Blog() {
         },
       });
       const newPosts = response.data;
+      const newFeaturedPosts = newPosts.filter(
+        (newPost: BlogPost) => newPost.featured
+      );
+      setFeaturedPosts((prevFeaturedPosts) => {
+        const uniqueNewFeaturedPosts = newFeaturedPosts.filter(
+          (newPost: any) =>
+            !prevFeaturedPosts.some((post) => post.id === newPost.id)
+        );
 
+        if (prevFeaturedPosts.length + uniqueNewFeaturedPosts.length > 10) {
+          const countToRemove =
+            prevFeaturedPosts.length + uniqueNewFeaturedPosts.length - 10;
+          return [
+            ...prevFeaturedPosts.slice(countToRemove),
+            ...uniqueNewFeaturedPosts,
+          ];
+        }
+        return [...prevFeaturedPosts, ...uniqueNewFeaturedPosts];
+      });
       setBlogPosts((prevPosts) => {
-        // Filter out posts that already exist in prevPosts
+        const nonFeaturedPosts = newPosts.filter(
+          (newPost: BlogPost) => !newPost.featured
+        );
         const uniqueNewPosts = newPosts.filter((newPost: BlogPost) =>
           prevPosts.every((prevPost: BlogPost) => prevPost.id !== newPost.id)
         );
@@ -44,7 +66,6 @@ export default function Blog() {
       });
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Display an error message to the user
     } finally {
       setIsLoading(false);
     }
@@ -68,16 +89,57 @@ export default function Blog() {
   const truncateContent = (content: string) => {
     return content.substring(0, 150);
   };
+
   const url = process.env.NEXT_PUBLIC_API_URL;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
+
   return (
     <div className="blog-page">
       <div className="blog-left">
+        <div className="featured-posts p-4">
+          {featuredPosts.map((post, index) => {
+            let imageurl = "";
+            if (mode === "debug") {
+              imageurl = `${url}/${post.thumbnail}`;
+            } else {
+              imageurl = post.thumbnail;
+            }
+
+            return (
+              <div
+                key={post.id}
+                className={`w-full flex mb-4 border rounded-lg`}>
+                <div className="w-1/2 p-4">
+                  <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                  <div
+                    className="text-gray-700"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(truncateContent(post.content)),
+                    }}></div>
+                  <Link
+                    href={`/blogs/${encodeURIComponent(post.slug)}`}
+                    className="text-blue-500 mt-2">
+                    Read More
+                  </Link>
+                </div>
+                <div className="w-1/2">
+                  <Image
+                    src={imageurl}
+                    alt="post images"
+                    className="object-cover w-full h-full"
+                    width={400}
+                    height={700}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
         <div className="card-container">
           <h1>Recent Post</h1>
           <h6>Infinite scrolling</h6>
           {blogPosts.map((post) => {
-            let imageurl = ""; // Define imageurl here
+            let imageurl = "";
             if (mode === "debug") {
               imageurl = `${url}/${post.thumbnail}`;
             } else {
@@ -88,7 +150,7 @@ export default function Blog() {
               <div className="cardz" key={post.id}>
                 <div className="card-image">
                   <Image
-                    src={imageurl} // Use the constructed imageurl
+                    src={imageurl}
                     alt="post images"
                     className="card__background"
                     width={400}
