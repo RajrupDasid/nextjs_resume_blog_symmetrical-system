@@ -33,17 +33,14 @@ export default async function sitemap() {
   const baseUrl = url;
   const posts = await fetchBlogPosts();
   const postUrls = posts.map((post:BlogPost) => ({
-    url: `${baseUrl}/blogs/${encodeURIComponent(post.slug)}`,
+    url: `${baseUrl}/${encodeURIComponent(post.slug)}`,
     lastModified: post.updated,
   }));
 
   return [
     { url: baseUrl, lastModified: new Date() },
     { url: `${baseUrl}/about`, lastModified: new Date() },
-    {url:`${baseUrl}/services`,lastModified:new Date()},
-    {url:`${baseUrl}/projects`,lastModified:new Date()},
     {url:`${baseUrl}/contact`,lastModified:new Date()},
-    {url:`${baseUrl}/blogs`,lastModified:new Date()},
     {url:`${baseUrl}/privacy-policy`,lastModified:new Date()},
     ...postUrls,
   ];
