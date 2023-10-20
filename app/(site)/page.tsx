@@ -97,7 +97,10 @@ export default function Blog() {
   return (
     <div className="blog-page">
       <div className="blog-left">
-        <div className="featured-posts p-4">
+        <div className="featured-post p-4">
+          <div className="flex px-60 mb-10 text-lg featured-posts">
+            <h2>Featured Posts</h2>
+          </div>
           {featuredPosts.map((post, index) => {
             let imageurl = "";
             if (mode === "debug") {
@@ -117,11 +120,13 @@ export default function Blog() {
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(truncateContent(post.content)),
                     }}></div>
-                  <Link
-                    href={`/${encodeURIComponent(post.slug)}`}
-                    className="text-blue-500 mt-2">
-                    Read More
-                  </Link>
+                  <div className="readbtn  border-blue-500">
+                    <Link
+                      href={`/${encodeURIComponent(post.slug)}`}
+                      className="text-blue-500 border-blue-500">
+                      Read More
+                    </Link>
+                  </div>
                 </div>
                 <div className="w-1/2">
                   <Image
@@ -137,8 +142,11 @@ export default function Blog() {
           })}
         </div>
         <div className="card-container">
-          <h1>Recent Post</h1>
-          <h6>Infinite scrolling</h6>
+          <hr />
+          <div className="mt-6 sm:left-9">
+            <h1>Recent Post</h1>
+            <h6>Infinite scrolling</h6>
+          </div>
           {blogPosts.map((post) => {
             let imageurl = "";
             if (mode === "debug") {

@@ -56,16 +56,6 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <Link href="/services" onClick={closeMenu}>
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link href="/projects" onClick={closeMenu}>
-            Projects
-          </Link>
-        </li>
-        <li>
           <Link href="/contact" onClick={closeMenu}>
             Contact
           </Link>
