@@ -1,3 +1,26 @@
+.ccard{
+  margin-left: 27vh;
+  height: 37vh;
+  box-shadow: 20px 15px 8px rgba(0, 208, 170, 0.2);
+  width: 81vh;
+  .readbtn{
+    margin-top: 50px;
+  }
+  @media screen and (max-width:600px) {
+      margin-left: -3vh;
+      height: 30vh;
+      width: 40vh;
+   
+  }
+ 
+}
+.featured-posts h2{
+  margin-left: 2vh;
+  @media  screen and (max-width:600px) {
+    margin-left: -30vh;
+  }
+}
+
 .card-container {
     max-height: 500px; /* Adjust the max height as needed */
     // overflow-y: auto;
@@ -14,7 +37,7 @@
     background: linear-gradient(90deg, rgb(17, 17, 17), rgb(64, 40, 132));
     border-radius: 10px;
     border: 2px solid white;
-    box-shadow: 35px 16px 10px rgba(0, 140, 114, 0.2);
+    box-shadow: 20px 15px 8px rgba(0, 208, 170, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     height: 40vh;
     cursor: pointer;

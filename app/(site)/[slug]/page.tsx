@@ -49,9 +49,9 @@ export async function generateMetadata({
     title: singlepost.title,
     description: desc,
     alternates: {
-      canonical: `/blogs/${desc}`,
+      canonical: `/${desc}`,
       languages: {
-        "en-US": `en-US/blogs/${desc}`,
+        "en-US": `en-US/${desc}`,
       },
     },
   };

@@ -30,15 +30,6 @@ export default function NavBar() {
                 <Link href="/about">About</Link>
               </li>
               <li>
-                <Link href="/services">Services</Link>
-              </li>
-              <li>
-                <Link href="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link href="/blogs">Blog</Link>
-              </li>
-              <li>
                 <Link href="/contact">Contact</Link>
               </li>
             </ul>
@@ -62,21 +53,6 @@ export default function NavBar() {
         <li>
           <Link href="/about" onClick={closeMenu}>
             About
-          </Link>
-        </li>
-        <li>
-          <Link href="/services" onClick={closeMenu}>
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link href="/projects" onClick={closeMenu}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link href="/blogs" onClick={closeMenu}>
-            Blog
           </Link>
         </li>
         <li>
