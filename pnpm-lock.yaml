@@ -32,6 +32,9 @@ dependencies:
   next-seo:
     specifier: ^6.1.0
     version: 6.1.0(next@13.5.4)(react-dom@18.2.0)(react@18.2.0)
+  nextjs_resume_blog_app:
+    specifier: 'link:'
+    version: 'link:'
   react:
     specifier: ^18.2.0
     version: 18.2.0
