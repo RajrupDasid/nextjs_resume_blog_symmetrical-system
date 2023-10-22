@@ -9,9 +9,9 @@ const headers = {
   Authorization: `${apl}  ${apk}`,
 };
 
-const getData = async (slug: string): Promise<any> => {
+const getData = async (category: string, slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
-  const api = `${url}${slug}`;
+  const api = `${url}/${category}/${slug}`;
   const res = await axios.get(api, {
     timeout: 90000000,
     headers: {
@@ -22,6 +22,7 @@ const getData = async (slug: string): Promise<any> => {
 };
 interface Params {
   slug: string;
+  category: string;
 }
 export const size = {
   width: 900,
@@ -35,7 +36,7 @@ function removeTags(str: string) {
 }
 
 export default async function og({ params }: { params: Params }) {
-  const post = await getData(params.slug);
+  const post = await getData(params.category, params.slug);
   const imageurl = `${post.thumbnail}`;
   const apidate = `${post.updated}`;
   const fixdate = apidate.toString().slice(0, 19).replace("T", " @ ") + " UTC";
