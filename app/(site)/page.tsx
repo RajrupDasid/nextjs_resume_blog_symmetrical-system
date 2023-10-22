@@ -17,6 +17,7 @@ export interface BlogPost {
   tags: string;
   blog: string;
   metadata: string;
+  category: string;
   featured: boolean; // Add this property
 }
 
@@ -114,16 +115,18 @@ export default function Blog() {
                 key={post.id}
                 className="w-9/12 h-full flex mb-4 border rounded-lg bg-gradient-to-r from-slate-900 to-purple-900 ccard">
                 <div className="w-1/2 p-4">
-                  <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                  <h2 className="text-2xl font-bold mb-2 posttitle">
+                    {post.title}
+                  </h2>
                   <div
-                    className="text-white"
+                    className="text-white fdesc"
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(truncateContent(post.content)),
                     }}></div>
-                  <div className="readbtn  border-blue-500">
+                  <div className="border-blue-500">
                     <Link
-                      href={`/${encodeURIComponent(post.slug)}`}
-                      className="text-blue-500 border-blue-500">
+                      href={`${post.category}/${encodeURIComponent(post.slug)}`}
+                      className="text-blue-500 border-blue-500 frdbtn">
                       Read More
                     </Link>
                   </div>
@@ -132,7 +135,7 @@ export default function Blog() {
                   <Image
                     src={imageurl}
                     alt="post images"
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full hidden lg:block"
                     width={400}
                     height={700}
                   />
@@ -143,7 +146,7 @@ export default function Blog() {
         </div>
         <div className="card-container">
           <hr />
-          <div className="mt-6 sm:left-9">
+          <div className="mt-6 rposttop">
             <h1>Recent Post</h1>
             <h6>Infinite scrolling</h6>
           </div>
@@ -174,7 +177,7 @@ export default function Blog() {
                       __html: DOMPurify.sanitize(truncateContent(post.content)),
                     }}></div>
                   <Link
-                    href={`/${encodeURIComponent(post.slug)}`}
+                    href={`${post.category}/${encodeURIComponent(post.slug)}`}
                     className="read-more">
                     Read More
                   </Link>
@@ -198,7 +201,7 @@ export default function Blog() {
           </ul>
         </div>
         <div className="popular-topics">
-          <h3>Popular Topics</h3>
+          <h3>Popular Tags</h3>
           <ul>{/* Render up to 4 popular topics here */}</ul>
         </div>
         <div className="search">

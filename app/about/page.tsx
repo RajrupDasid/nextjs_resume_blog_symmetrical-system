@@ -3,40 +3,51 @@ import "@/public/assets/css/about.scss";
 import coder from "@/public/assets/images/coder.jpeg";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { NextSeo } from "next-seo";
+import TechStack from "../techstack/page";
+import ServiceCard from "./sitecard/page";
 
 export const metadata: Metadata = {
   title: "Webstackpros.net | About Us",
   description:
     "Webstackpros.net about us - Who we are? what we do? What is our motto ? Get full information about our workflows follow us on github",
 };
-/*
-  <NextSeo
-        title="Webstackpros.net| about us"
-        description="Webstackpros.net about us - Who we are? what we do? What is our motto ? Get full information about our workflows follow us on github"
-        canonical="https://www.webstackpros.net/about"
-        openGraph={{
-          url: "https://www.webstackpros.net/about",
-          title: "Open Graph Title",
-          description: "Open Graph Description",
-          images: [
-            {
-              url: "https://www.webstackpros.net/image.jpg",
-              width: 800,
-              height: 600,
-              alt: "Og Image Alt",
-              type: "image/jpeg",
-            },
-          ],
-          siteName: "Webstackpros.net",
-        }}
-        twitter={{
-          handle: "@webstackpros",
-          site: "@main",
-          cardType: "summary_large_image",
-        }}
-      />
-*/
+const services = [
+  {
+    title: "Security System",
+    description:
+      "We have experience developing robust security system that can prevent cloud to application exploit",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Ecommerce Management with CMS",
+    description: "We took experties making of automatic ecommerce application",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Phishing detection tool",
+    description:
+      "We have develop phishing and malware detection tool that can help to prevent any users from going into phishing or malware website",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Opensource contribution",
+    description:
+      "We have developed and contributed to opensource projects to help opensource users and members",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  {
+    title: "Machine Learning and Analytics",
+    description:
+      "We have develop complex machinelearning model that can detect cloud configuration issues prior any exploit breach the system",
+    imageUrl:
+      "https://www.crio.do/blog/content/images/2021/04/Full-stack-development-blueprint.png", // Add the path to your image
+  },
+  // Add more services as needed
+];
 export default function About() {
   return (
     <>
@@ -56,42 +67,19 @@ export default function About() {
           </p>
         </div>
       </section>
+      <hr className="hori" />
+      <div className="py-10">
+        <TechStack />
+      </div>
+      <hr className="hori" />
       <section className="dessec">
         <div className="below">
-          <div className="boxx">
-            <div className="cardp">
-              <div className="descrip">
-                <p>
-                  Unlocking Innovative Solutions with Webstackpros Professional
-                  Engineers: Trust in our expert team of engineers to transform
-                  your vision into reality. With a wealth of experience,
-                  cutting-edge technology, and a commitment to excellence, we
-                  design and deliver solutions that exceed expectations. From
-                  concept to completion, our engineering prowess ensures your
-                  project&aposs success. Partner with us for precision, quality,
-                  and reliability in every endeavor.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="onthe">
-            <div className="boxx2">
-              <div className="cardp">
-                <div className="descrip">
-                  <p>
-                    Open Source - We love open source and support opensource
-                    projects such as Linux Kernel,Python,Django,Nextjs and many
-                    more.In our opinion opensource is the backbone of our
-                    mordern techlife. We don&apos;t so much time to contribute
-                    in all of them logically , but we alaws try to raise bugs
-                    and possible fixes in their github or gitlab (depends)
-                    repository if any of appear in our use case . We love open
-                    source soo much that our website and much of our projects is
-                    opensourced on github. You can check contribute or even use
-                    them in your personal projects.
-                  </p>
-                </div>
-              </div>
+          <div className="services-page">
+            <h1>Our Services</h1>
+            <div className="service-cards">
+              {services.map((service, index) => (
+                <ServiceCard key={index} {...service} />
+              ))}
             </div>
           </div>
         </div>

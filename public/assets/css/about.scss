@@ -28,7 +28,7 @@
 .circular--landscape img {
   width: auto;
   height: 100%;
-  margin-left: -50px;
+  margin-left: 0px;
 }
 
 .rightabout p {
@@ -42,16 +42,17 @@
 .dessec {
   padding: 40px;
   color: #ffffff;
+  display: flex;
   text-align: center;
-  margin-left: 8vh;
+  flex-direction: column;
 }
 
 
 .below {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-bottom: 40vh;
-  margin-top: 30vh;
+  margin-top: 5vh;
 }
 
 .boxx {
@@ -92,7 +93,12 @@
   max-width: 700px;
   width: 100%;
 }
-
+.hori{
+  color: limegreen;
+    border-color: limegreen;
+    border-width: 1px;
+    margin-top: 30px;
+}
 /* Responsive styles */
 
 @media (max-width: 768px) {

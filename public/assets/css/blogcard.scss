@@ -12,14 +12,37 @@
       width: 40vh;
    
   }
- 
+  @media screen and (max-width:780px) {
+    margin-left: 4vh;
+    width: 46vh;
+  }
+ @media screen and (max-width:400px) {
+  margin-left: -3vh;
+  width: 40vh;
+ }
+ @media screen and (max-width:380px) {
+  width: 50vh;
+  height: 50vh;
+  
+ }
+
 }
 .featured-posts h2{
   margin-left: 2vh;
   @media  screen and (max-width:600px) {
     margin-left: -30vh;
+    font-weight: bold;
+  }
+  @media screen and (max-width:780px) {
+    margin-left: -20vh;
+    font-weight: bold;
+    
+  }
+  @media  screen and (max-width:380px) {
+    margin-left: -37vh;
   }
 }
+
 
 .card-container {
     max-height: 500px; /* Adjust the max height as needed */
@@ -101,6 +124,7 @@
     }
   }
 
+
 @media screen and (max-width:1280px){
   .cardz{
     margin-right: 680px;
@@ -177,7 +201,9 @@
     max-width: 120%;
   }
   .cardz .card-content h2{
-	font-size: 0.6rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    max-width: 30%;
   }
   .cardz .card-content .read-more{
 	padding: 6px 14px;
@@ -185,7 +211,22 @@
   
 }
 
-
+@media screen and (max-width:600px) {
+  .posttitle{
+    width: 250%;
+  }
+  .fdesc{
+    width: 270%;
+  }
+  .frdbtn{
+    margin-top: 20px;
+  }
+  .rposttop{
+    margin-left: 60px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
 
 @media screen and (max-width:400px) {
  .cardz .card-image img{
@@ -203,6 +244,9 @@
   width: 40%;
   height: 48%;
   margin-left: 44px;
+}
+.posttitle{
+  width: 230%;
 }
 }
 @media  screen and (max-width:350px) {
