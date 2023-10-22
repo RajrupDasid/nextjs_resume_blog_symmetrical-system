@@ -35,7 +35,7 @@ export default function Footer() {
             </div>
           </div>
           <Link href="/privacy-policy">Privacy Policy</Link>
-          <a href="/terms-and-conditions">Terms and Conditions</a>
+          <Link href="/terms-and-conditions">Terms and Conditions</Link>
         </div>
         <div className="copyright">
           © 2023 Webstackpros.net. All rights reserved.

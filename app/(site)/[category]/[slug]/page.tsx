@@ -10,10 +10,10 @@ const mode = process.env.NEXT_PUBLIC_ENV_STATE;
 const local = process.env.NEXT_PUBLIC_API_URL;
 let imageurl = "";
 
-const getData = async (slug: string): Promise<any> => {
+const getData = async (category: string, slug: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
 
-  const api = `${url}/api/blogs/${slug}`;
+  const api = `${url}/api/blogs/${category}/${slug}`;
   const res = await axios.get(api, {
     timeout: 90000000,
     headers: {
@@ -24,6 +24,7 @@ const getData = async (slug: string): Promise<any> => {
 };
 interface Params {
   slug: string;
+  category: string;
 }
 function removeTags(str: string) {
   if (str === null || str === "") return "";
@@ -36,7 +37,7 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const singlepost = await getData(params.slug);
+  const singlepost = await getData(params.category, params.slug);
   const clean = removeTags(singlepost.content);
   const desc: string = clean.substring(0, 150);
   if (!singlepost) {
@@ -62,8 +63,8 @@ const SinglePage = async ({
 }: {
   params: Params;
 }): Promise<JSX.Element> => {
-  const { slug } = params;
-  const post = await getData(slug);
+  const { slug, category } = params;
+  const post = await getData(category, slug);
   if (mode === "debug") {
     imageurl = `${local}/${post.thumbnail}`;
   } else {
@@ -110,8 +111,6 @@ const SinglePage = async ({
         </div>
         <div className="right-column">
           <div className="post-list">
-            <h2>Post List</h2>
-            {post.title}
             <div className="most-popular-posts">
               <h3>Most Popular Posts</h3>
             </div>

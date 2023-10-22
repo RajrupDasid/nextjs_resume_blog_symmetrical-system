@@ -17,6 +17,7 @@ export interface BlogPost {
   tags: string;
   blog: string;
   metadata: string;
+  category: string;
   featured: boolean; // Add this property
 }
 
@@ -124,7 +125,7 @@ export default function Blog() {
                     }}></div>
                   <div className="border-blue-500">
                     <Link
-                      href={`/${encodeURIComponent(post.slug)}`}
+                      href={`${post.category}/${encodeURIComponent(post.slug)}`}
                       className="text-blue-500 border-blue-500 frdbtn">
                       Read More
                     </Link>
@@ -176,7 +177,7 @@ export default function Blog() {
                       __html: DOMPurify.sanitize(truncateContent(post.content)),
                     }}></div>
                   <Link
-                    href={`/${encodeURIComponent(post.slug)}`}
+                    href={`${post.category}/${encodeURIComponent(post.slug)}`}
                     className="read-more">
                     Read More
                   </Link>
@@ -200,7 +201,7 @@ export default function Blog() {
           </ul>
         </div>
         <div className="popular-topics">
-          <h3>Popular Topics</h3>
+          <h3>Popular Tags</h3>
           <ul>{/* Render up to 4 popular topics here */}</ul>
         </div>
         <div className="search">

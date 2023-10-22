@@ -8,6 +8,7 @@ export interface BlogPost {
   slug: string;
   metadata: string;
   updated: Date; // Add a property for last modified date
+  category: string;
   post:string;
 }
 
@@ -33,7 +34,7 @@ export default async function sitemap() {
   const baseUrl = url;
   const posts = await fetchBlogPosts();
   const postUrls = posts.map((post:BlogPost) => ({
-    url: `${baseUrl}/${encodeURIComponent(post.slug)}`,
+    url: `${baseUrl}/${post.category}/${encodeURIComponent(post.slug)}`,
     lastModified: post.updated,
   }));
 
@@ -42,6 +43,7 @@ export default async function sitemap() {
     { url: `${baseUrl}/about`, lastModified: new Date() },
     {url:`${baseUrl}/contact`,lastModified:new Date()},
     {url:`${baseUrl}/privacy-policy`,lastModified:new Date()},
+    {url:`${baseUrl}/terms-and-conditions`,lastModified:new Date()},
     ...postUrls,
   ];
 }
