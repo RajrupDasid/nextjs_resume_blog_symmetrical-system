@@ -1,12 +1,12 @@
+"use client";
 import React from "react";
-import Image from "next/image"; // Import the Image component from "next/image"
-// import styles from "../assets/css/services.scss";
+import Image from "next/image";
 import "@/public/assets/css/sitecard.scss";
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  imageUrl: string; // Add a new prop for the image URL
+  imageUrl: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
