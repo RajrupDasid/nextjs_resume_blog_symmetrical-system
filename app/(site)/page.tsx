@@ -89,7 +89,7 @@ export default function Blog() {
   }, [fetchBlogPosts]);
 
   const truncateContent = (content: string) => {
-    return content.substring(0, 150);
+    return content.substring(0, 180);
   };
 
   const url = process.env.NEXT_PUBLIC_API_URL;
