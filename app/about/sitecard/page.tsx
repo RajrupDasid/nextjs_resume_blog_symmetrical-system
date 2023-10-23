@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import "@/public/assets/css/sitecard.scss";
 
 interface ServiceCardProps {
