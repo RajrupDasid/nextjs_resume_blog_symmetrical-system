@@ -5,16 +5,18 @@
 
   .left-column {
     flex: 2; /* Adjust the ratio between left and right columns */
-    padding-right: 220px;
+    padding-right: 790px;
     border-right: 1px solid #ccc;
     margin-left: 50px;
     .header {
       margin-bottom: 20px;
 
       .blog-header-image {
-        margin-left: 40vh;
+        margin-left: 30vh;
         max-width: 123%;
         height: auto;
+        width: 120%;
+        box-shadow: 20px 18px 20px black;
       }
       .tagsclass{
         max-width: 25%;
@@ -28,6 +30,7 @@
       .blog-title {
         font-size: 60px;
         margin-bottom: 10px;
+        width: 200%;
         
         
         @media (max-width:600px) {
@@ -35,7 +38,8 @@
 
         }
         @media  screen and (max-width:400px) {
-          font-size: 27px;
+          font-size: 24px;
+          max-width: 84%;
         }
       }
       h6{
@@ -46,6 +50,8 @@
         margin-bottom: 20px;
         line-height: 40px;
         margin-top: 50px;
+        width: 210%;
+        max-width: 210%;
       }
 
       /* Add comment section styles here */
@@ -86,11 +92,12 @@
     visibility: hidden;
   }
   .blog-detail-container{
-    overflow-y: hidden;
-    overflow: hidden;
+    // overflow-y: hidden;
+    // overflow: hidden;
+    margin: 0px;
   }
   .blog-details{
-    margin-left: -13%;
+    // margin-left: -13%;
   .blog-description{
     max-width: 88%;
     line-height: 30px;
@@ -99,9 +106,12 @@
   }
 }
 @media screen and (max-width:400px) {
-  .blog-details{
-    margin-right: 10%;
-    margin-left: -13%;
+  .blog-detail-container{
+    overflow: hidden;
+    margin:0px;
+  }
+  .blog-details .blog-description p{
+    width: 42%;
   }
   
 }
