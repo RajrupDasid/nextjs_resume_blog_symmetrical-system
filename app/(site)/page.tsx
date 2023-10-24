@@ -127,7 +127,7 @@ export default function Blog() {
                     <Link
                       href={`${post.category}/${encodeURIComponent(post.slug)}`}
                       className="text-blue-500 border-blue-500 frdbtn">
-                      Read More
+                      Read details
                     </Link>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function Blog() {
                   <Link
                     href={`${post.category}/${encodeURIComponent(post.slug)}`}
                     className="read-more">
-                    Read More
+                    Read details
                   </Link>
                 </div>
               </div>
