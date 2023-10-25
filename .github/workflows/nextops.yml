@@ -17,10 +17,12 @@ jobs:
       - name: Install packages
         run: |
           node --version
-          npm -v
-          npm ci
-          npm install
+          npm install -g pnpm
+          echo "pnpm installed globally"
+          pnpm --version
+          pnpm install .
 
       - name: build and test site
         run: |
-          npm run build
+          pnpm install .
+          pnpm run build

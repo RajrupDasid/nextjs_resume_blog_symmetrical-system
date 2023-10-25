@@ -6,13 +6,14 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import ClarityMS from "./Clarity";
 import NextBreadcrumb from "@/components/breadcrumbs/Breadcrumbs";
 import "@/global.css";
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.webstackpros.net"),
   title: "Webstackpros.net",
   description:
     "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
+  other: { "p:domain_verify": "7f562b83bb6b61abb8204072b470b756" },
 };
 
 export default function RootLayout({
