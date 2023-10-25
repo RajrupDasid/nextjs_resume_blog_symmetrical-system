@@ -1,6 +1,6 @@
 import DOMPurify from "isomorphic-dompurify";
 import axios from "axios";
-import "@/public/assets/css/BlogDetail.scss";
+// import "@/public/assets/css/BlogDetail.scss";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -75,44 +75,56 @@ const SinglePage = async ({
   const fixdate = apidate.toString().slice(0, 19).replace("T", " @ ") + " UTC";
   return (
     <>
-      <div className="blog-detail-container">
-        <div className="left-column">
-          <div className="header">
-            <Image
-              src={imageurl}
-              alt="hello world"
-              className="blog-header-image"
-              width={640}
-              height={400}
-            />
-          </div>
-          <div className="blog-details">
-            <h1 className="blog-title">{post.title}</h1>
-            <h6>
-              Last updated :- <span>{fixdate}</span>
-            </h6>
-            <div className="flex flex-wrap m-0">
-              <ul className="flex flex-wrap">
-                {post.tags.map((tag: any, index: any) => (
-                  <li
-                    className="tagsclass p-2 m-1  rounded border border-gray-300"
-                    key={index}>
-                    {tag}
-                  </li>
-                ))}
-              </ul>
+      <div className="min-h-screen">
+        <div className="mx-auto max-w-screen-xl p-4">
+          <div className="flex">
+            <div className="w-full md:w-2/3 pr-8">
+              <div className="header">
+                <Image
+                  src={imageurl}
+                  alt="hello world"
+                  className="blog-header-image rounded-lg shadow-2xl"
+                  width={740}
+                  height={580}
+                />
+              </div>
+              <div className="blog-details mt-4">
+                <h1 className="text-3xl font-semibold text-white">
+                  {post.title}
+                </h1>
+                <h6 className="text-gray-600">
+                  Last updated: <span>{fixdate}</span>
+                </h6>
+                <div className="flex flex-wrap mt-3">
+                  <ul className="flex flex-wrap">
+                    {post.tags.map((tag: any, index: any) => (
+                      <li
+                        className="bg-gradient-to-r from-blue-400 to-purple-400  tagsclass p-2 m-1 rounded border border-gray-300  text-white"
+                        key={index}>
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div
+                  className="blog-description mt-4 text-white"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(post.content),
+                  }}
+                />
+              </div>
             </div>
-            <div
-              className="blog-description"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(post.content),
-              }}></div>
-          </div>
-        </div>
-        <div className="right-column">
-          <div className="post-list">
-            <div className="most-popular-posts">
-              <h3>Most Popular Posts</h3>
+            <div className="hidden md:w-1/3 md:flex">
+              <div className="post-list">
+                <div className="most-popular-posts">
+                  <div className="border-l pl-4">
+                    <h3 className="text-xl font-semibold text-white">
+                      Most Popular Posts
+                    </h3>
+                    {/* Add your list of popular posts here */}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
