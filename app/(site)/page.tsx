@@ -137,7 +137,11 @@ export default function Blog() {
                     alt="post images"
                     className="object-cover w-full h-full hidden lg:block"
                     width={400}
-                    height={700}
+                    height={400}
+                    placeholder="blur"
+                    blurDataURL={imageurl}
+                    quality={100}
+                    priority
                   />
                 </div>
               </div>

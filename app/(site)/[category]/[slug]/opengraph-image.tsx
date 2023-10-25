@@ -43,7 +43,7 @@ export default async function og({ params }: { params: Params }) {
   return new ImageResponse(
     (
       <div>
-        <Image src={imageurl} alt={post.title} />
+        <Image src={imageurl} alt={post.title} priority />
         <p>{post.title}</p>
         <p>{fixdate}</p>
       </div>
