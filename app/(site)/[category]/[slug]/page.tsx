@@ -86,6 +86,10 @@ const SinglePage = async ({
                   className="blog-header-image rounded-lg shadow-2xl"
                   width={740}
                   height={580}
+                  placeholder="blur"
+                  blurDataURL={imageurl}
+                  quality={100}
+                  priority
                 />
               </div>
               <div className="blog-details mt-4">
