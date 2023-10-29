@@ -1,7 +1,7 @@
 .ccard{
   margin-left: 27vh;
   height: 37vh;
-  box-shadow: 20px 15px 8px rgba(0, 208, 170, 0.2);
+  box-shadow: 10px 10px 10px rgba(80, 0, 208, 0.2);
   width: 81vh;
   .readbtn{
     margin-top: 50px;
@@ -43,6 +43,9 @@
   }
 }
 
+h1{
+ font-weight: bolder;
+}
 
 .card-container {
     max-height: 500px; /* Adjust the max height as needed */
@@ -60,16 +63,13 @@
     background: linear-gradient(90deg, rgb(17, 17, 17), rgb(64, 40, 132));
     border-radius: 10px;
     border: 2px solid white;
-    box-shadow: 20px 15px 8px rgba(0, 208, 170, 0.2);
+    box-shadow: 10px 10px 10px rgba(62, 0, 208, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     height: 40vh;
     cursor: pointer;
 
   
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    }
+
   
     .card-image {
       flex: 1;
@@ -118,7 +118,7 @@
         transition: background-color 0.3s;
   
         &:hover {
-          background-color: #0056b3;
+          background-color: #000cb3;
         }
       }
     }
