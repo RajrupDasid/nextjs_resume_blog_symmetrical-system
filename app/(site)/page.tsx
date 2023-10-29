@@ -7,7 +7,8 @@ import Link from "next/link";
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import "@/public/assets/css/blogcard.scss";
-
+// import search from "@/controller/search";
+import SearchForm from "@/components/searchfrom/searchform";
 export interface BlogPost {
   id: number;
   title: string;
@@ -100,7 +101,7 @@ export default function Blog() {
       <div className="blog-left">
         <div className="featured-post p-4">
           <div className="flex px-60 mb-10 text-lg featured-posts">
-            <h2>Featured Posts</h2>
+            <h1 className="text-white text-2xl px-10">Featured Posts</h1>
           </div>
           {featuredPosts.map((post, index) => {
             let imageurl = "";
@@ -149,10 +150,8 @@ export default function Blog() {
           })}
         </div>
         <div className="card-container">
-          <hr />
           <div className="mt-6 rposttop">
-            <h1>Recent Post</h1>
-            <h6>Infinite scrolling</h6>
+            <h1 className="text-white text-2xl px-10">Recent Post</h1>
           </div>
           {blogPosts.map((post) => {
             let imageurl = "";
@@ -204,14 +203,11 @@ export default function Blog() {
             ))}
           </ul>
         </div>
-        <div className="popular-topics">
+        {/* <div className="popular-topics">
           <h3>Popular Tags</h3>
-          <ul>{/* Render up to 4 popular topics here */}</ul>
-        </div>
-        <div className="search">
-          <input type="text" placeholder="Search..." />
-          <button>Search</button>
-        </div>
+          <ul></ul>
+        </div> */}
+        <SearchForm />
       </div>
     </div>
   );
