@@ -1,6 +1,12 @@
-.blog-description{
-  line-height: 35px;
+.blog-details{
+  overflow: hidden;
+  overflow-y: hidden;
 }
+
+.blog-description p{
+  line-height: 36px;
+}
+
 .blog-header-image{
   width: 120%;
 }

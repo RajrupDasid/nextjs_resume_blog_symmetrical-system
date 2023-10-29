@@ -1,6 +1,6 @@
 import DOMPurify from "isomorphic-dompurify";
 import axios from "axios";
-// import "@/public/assets/css/BlogDetail.scss";
+import "@/public/assets/css/BlogDetail.scss";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -122,9 +122,9 @@ const SinglePage = async ({
               <div className="post-list">
                 <div className="most-popular-posts">
                   <div className="border-l pl-4">
-                    <h3 className="text-xl font-semibold text-white">
+                    {/* <h3 className="text-xl font-semibold text-white">
                       Most Popular Posts
-                    </h3>
+                    </h3> */}
                     {/* Add your list of popular posts here */}
                   </div>
                 </div>
