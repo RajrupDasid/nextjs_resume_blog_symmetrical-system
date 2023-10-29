@@ -23,4 +23,4 @@ jobs:
       - name: build and test site
         run: |
           npm install
-          pnpm run build
+          npm run build
