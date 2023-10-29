@@ -18,10 +18,9 @@ jobs:
         run: |
           node --version
           npm -v
-          npm ci
           npm install
 
       - name: build and test site
         run: |
-          pnpm install .
-          pnpm run build
+          npm install
+          npm run build
