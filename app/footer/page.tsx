@@ -31,7 +31,9 @@ export default function Footer() {
         <div className="footer-links">
           <div className="openweb">
             <div className="opensource">
-              <Link href="/">We are opensource</Link>
+              <Link href="https://github.com/RajrupDasid/nextjs_resume_blog_symmetrical-system">
+                We are opensource
+              </Link>
             </div>
           </div>
           <Link href="/privacy-policy">Privacy Policy</Link>
