@@ -113,45 +113,35 @@ export default function Blog() {
 
             return (
               <div
-                key={post.id}
-                className="w-9/12 h-full flex mb-4 border rounded-lg bg-gradient-to-r from-slate-900 to-purple-900 ccard">
-                <div className="w-1/2 p-4">
-                  <h2 className="text-2xl font-bold mb-2 posttitle">
-                    {post.title}
-                  </h2>
-                  <div
-                    className="text-white fdesc"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(truncateContent(post.content)),
-                    }}></div>
-                  <div className="border-blue-500">
-                    <Link
-                      href={`${post.category}/${encodeURIComponent(post.slug)}`}
-                      className="text-blue-500 border-blue-500 frdbtn">
-                      Read details
-                    </Link>
-                  </div>
-                </div>
-                <div className="w-1/2">
+                className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg fcards"
+                key={post.id}>
+                <Link
+                  href={`${post.category}/${encodeURIComponent(post.slug)}`}>
                   <Image
                     src={imageurl}
                     alt="post images"
-                    className="object-cover w-full h-full hidden lg:block"
+                    className="w-full"
                     width={400}
-                    height={400}
-                    placeholder="blur"
-                    blurDataURL={imageurl}
-                    quality={100}
-                    priority
+                    height={700}
                   />
-                </div>
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">{post.title}</div>
+                    <div
+                      className="text-white text-base w-40 overflow-hidden"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(
+                          truncateContent(post.content)
+                        ),
+                      }}></div>
+                  </div>
+                </Link>
               </div>
             );
           })}
         </div>
         <div className="card-container">
           <div className="mt-6 rposttop">
-            <h1 className="text-white text-2xl px-10">Recent Post</h1>
+            <h1 className="text-white text-2xl recentpost">Recent Post</h1>
           </div>
           {blogPosts.map((post) => {
             let imageurl = "";
@@ -162,29 +152,30 @@ export default function Blog() {
             }
 
             return (
-              <div className="cardz" key={post.id}>
-                <div className="card-image">
+              <div
+                className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg tcards"
+                key={post.id}>
+                <Link
+                  href={`${post.category}/${encodeURIComponent(post.slug)}`}>
                   <Image
                     src={imageurl}
                     alt="post images"
-                    className="card__background"
+                    className="w-full"
                     width={400}
                     height={700}
                   />
-                </div>
-                <div className="card-content">
-                  <h2>{post.title}</h2>
-                  <div
-                    className="card__snippet"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(truncateContent(post.content)),
-                    }}></div>
-                  <Link
-                    href={`${post.category}/${encodeURIComponent(post.slug)}`}
-                    className="read-more">
-                    Read details
-                  </Link>
-                </div>
+
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">{post.title}</div>
+                    <div
+                      className="text-white text-base w-40 overflow-hidden"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(
+                          truncateContent(post.content)
+                        ),
+                      }}></div>
+                  </div>
+                </Link>
               </div>
             );
           })}
