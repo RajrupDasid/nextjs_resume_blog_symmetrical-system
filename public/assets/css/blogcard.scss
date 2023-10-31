@@ -1,40 +1,30 @@
-.ccard{
-  margin-left: 27vh;
-  height: 37vh;
-  box-shadow: 10px 10px 10px rgba(80, 0, 208, 0.2);
-  width: 81vh;
-  .readbtn{
-    margin-top: 50px;
-  }
-  @media screen and (max-width:600px) {
-      margin-left: -3vh;
-      height: 30vh;
-      width: 40vh;
-   
-  }
-  @media screen and (max-width:780px) {
-    margin-left: 4vh;
-    width: 46vh;
-  }
- @media screen and (max-width:400px) {
-  margin-left: -3vh;
-  width: 40vh;
- }
- @media screen and (max-width:380px) {
-  width: 50vh;
-  height: 50vh;
-  
- }
 
+.fcards{
+  margin-left: 50vh;
+
+  @media screen and (max-width:600px) {
+    margin-left: -3vh;
+  }
 }
-.featured-posts h2{
+.tcards{
+  margin-left: 54vh;
+}
+.recentpost{
+  margin-left: 35vh;
+  @media  screen and (max-width:600px) {
+    margin-left: -2vh;
+    
+  }
+}
+
+.featured-posts h1{
   margin-left: 2vh;
   @media  screen and (max-width:600px) {
-    margin-left: -30vh;
+    margin-left: -28vh;
     font-weight: bold;
   }
   @media screen and (max-width:780px) {
-    margin-left: -20vh;
+    margin-left: -28vh;
     font-weight: bold;
     
   }
@@ -47,176 +37,17 @@ h1{
  font-weight: bolder;
 }
 
-.card-container {
-    max-height: 500px; /* Adjust the max height as needed */
-    // overflow-y: auto;
-	margin-left: 250px;
-  }
-  
-  .cardz {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 20px;
-    background: linear-gradient(90deg, rgb(17, 17, 17), rgb(64, 40, 132));
-    border-radius: 10px;
-    border: 2px solid white;
-    box-shadow: 10px 10px 10px rgba(62, 0, 208, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 40vh;
-    cursor: pointer;
-
   
 
-  
-    .card-image {
-      flex: 1;
-      max-width: 50%;
-      height: 100%;
-      border-radius: 10px 0 0 10px;
-      overflow: hidden;
-  
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  
-    .card-content {
-      flex: 1;
-      padding: 20px;
-  
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: #fff; /* Text color for the title */
-      }
-  
-      p {
-        font-size: 1rem;
-        line-height: 1.4;
-        color: #eee; /* Text color for the content */
-      }
-	  .card__snippet{
-		font-size: 1.3rem;
-		line-height: 1.4;
-		color: #eee;
-		margin-bottom: 20px;
-	  }
-  
-      .read-more {
-        margin-top: 15px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #000cb3;
-        }
-      }
-    }
-  }
-
-
-@media screen and (max-width:1280px){
-  .cardz{
-    margin-right: 680px;
-    margin-left: -180px;
-  }
-}
-@media  screen and (max-width:1100px) {
-  .cardz{
-    margin-right: 680px;
-    margin-left: -234px;
-    height: 40%;
-    width: 90%;
-  }
-  .cardz .card-image img {
-    width: 78%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .cardz .card-content p {
-    font-size: 0.6rem;
-    line-height: 1.4;
-    color: #eee;
-  }
-  .cardz .card-content h2 {
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  .cardz .card-content .read-more {
-    margin-top: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .card-container {
-    max-height: 500px;
-    margin-left: 310px;
-  }
-}
-
-@media screen and (max-width:850px) {
-  .card-container {
-    max-height: 500px;
-    margin-left: 247px;
-  }
-  
-}
-
-@media screen and (max-width: 768px) {
-  .fourthSection {
-    margin-left: -3vh;
-    margin-top: 8vh;
-    // overflow-y: hidden;
-  }
-  .seperatorx {
-    margin-top: 16px;
-    margin-left: 90px;
-  }
-  .card-container {
-	margin-left: -60px;
-  }
-  .cardz {
-    margin: 20px 53px;
-    width: 89%;
-    height: 50%;
-    margin-left: 110px;
-  } 
-  .cardz .card-content p{
-	font-size: 0.6rem;
-    max-width: 120%;
-  }
-  .cardz .card-content h2{
-    font-size: 1.3rem;
-    font-weight: bold;
-    max-width: 30%;
-  }
-  .cardz .card-content .read-more{
-	padding: 6px 14px;
-  }
-  
-}
 
 @media screen and (max-width:600px) {
   .posttitle{
     width: 250%;
+    font-size: 1.5rem;
   }
   .fdesc{
     width: 270%;
+    font-size: 1rem;
   }
   .frdbtn{
     margin-top: 20px;
@@ -226,46 +57,17 @@ h1{
     font-size: 20px;
     font-weight: bold;
   }
+  .tcards{
+    margin-left: -12px;
+    height: 54vh;
+    width: 42vh;
+  }
 }
 
 @media screen and (max-width:400px) {
- .cardz .card-image img{
-    display: none;
- } 
- .cardz .card-content p {
-  font-size: 0.7rem;
-  max-width: 32%;
-  width: 500px;
-  margin-right: 374px;
-}
-.cardz {
-  margin: 20px 53px;
-  margin-left: 53px;
-  width: 40%;
-  height: 48%;
-  margin-left: 44px;
-}
+ 
 .posttitle{
   width: 230%;
 }
-}
-@media  screen and (max-width:350px) {
-  .cardz .card-image img{
-    display: none;
- } 
- .cardz .card-content p {
-  font-size: 0.7rem;
-  max-width: 32%;
-  width: 500px;
-  margin-right: 374px;
-}
-.cardz {
-  margin: 20px 53px;
-  margin-left: 53px;
-  width: 33%;
-  height: 48%;
-  margin-left: 47px;
-}
-  
 }
 
