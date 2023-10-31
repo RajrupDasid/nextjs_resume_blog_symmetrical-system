@@ -78,7 +78,9 @@ const SinglePage = async ({
       <div className="min-h-screen">
         <div className="mx-auto max-w-screen-xl p-4">
           <div className="flex">
-            <div className="w-full md:w-2/3 pr-8">
+            <div className="w-full md:w-3/4 pr-4">
+              {" "}
+              {/* Increase the left side width */}
               <div className="header">
                 <Image
                   src={imageurl}
@@ -92,18 +94,18 @@ const SinglePage = async ({
                   priority
                 />
               </div>
-              <div className="blog-details mt-4">
+              <div className="blog-details mt-10">
                 <h1 className="text-3xl font-semibold text-white">
                   {post.title}
                 </h1>
-                <h6 className="text-gray-600">
+                <h6 className="text-gray-600 mt-6">
                   Last updated: <span>{fixdate}</span>
                 </h6>
-                <div className="flex flex-wrap mt-3">
-                  <ul className="flex flex-wrap">
+                <div className="flex flex-wrap mt-6">
+                  <ul className="flex flex-wrap mt-6">
                     {post.tags.map((tag: any, index: any) => (
                       <li
-                        className="bg-gradient-to-r from-blue-400 to-purple-400  tagsclass p-2 m-1 rounded border border-gray-300  text-white"
+                        className="bg-gradient-to-r from-blue-400 to-purple-400 tagsclass p-2 m-1 rounded border border-gray-300 text-white"
                         key={index}>
                         {tag}
                       </li>
@@ -111,20 +113,22 @@ const SinglePage = async ({
                   </ul>
                 </div>
                 <div
-                  className="blog-description mt-4 text-white"
+                  className="blog-description mt-10 text-white"
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(post.content),
                   }}
                 />
               </div>
             </div>
-            <div className="hidden md:w-1/3 md:flex">
+            <div className="hidden md:w-1/4 md:flex">
+              {" "}
+              {/* Decrease the right side width */}
               <div className="post-list">
                 <div className="most-popular-posts">
                   <div className="border-l pl-4">
                     {/* <h3 className="text-xl font-semibold text-white">
-                      Most Popular Posts
-                    </h3> */}
+                Most Popular Posts
+              </h3> */}
                     {/* Add your list of popular posts here */}
                   </div>
                 </div>
