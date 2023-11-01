@@ -1,4 +1,5 @@
-name: Next.js build and deploy to s3
+name: Next.js build and deploy to S3
+
 on:
   push:
     branches: [master]
@@ -13,14 +14,10 @@ jobs:
       - name: Node management
         uses: actions/setup-node@v3
         with:
-          node-version: "20.7.0"
-      - name: Install packages
+          node-version: "lts"
+      - name: Install packages and build
         run: |
           node --version
           npm -v
-          npm install
-
-      - name: build and test site
-        run: |
-          npm install
+          npm install .
           npm run build
