@@ -34,7 +34,7 @@ export default async function sitemap() {
   const baseUrl = url;
   const posts = await fetchBlogPosts();
   const postUrls = posts.map((post:BlogPost) => ({
-    url: `${baseUrl}/${post.category}/${encodeURIComponent(post.slug)}`,
+    url: `${baseUrl}/${post.category}/${post.slug}`,
     lastModified: post.updated,
   }));
 
