@@ -9,6 +9,8 @@ import Image from "next/image";
 import "@/public/assets/css/blogcard.scss";
 // import search from "@/controller/search";
 import SearchForm from "@/components/searchfrom/searchform";
+import Cookies from "universal-cookie";
+import generateRandomString from "@/lib/Tokengenerator";
 export interface BlogPost {
   id: number;
   title: string;
@@ -37,6 +39,13 @@ export default function Blog() {
           Authorization: `${apl} ${apk}`,
         },
       });
+      const cookies = new Cookies();
+      cookies.set("_intercom", generateRandomString(100), {
+        path: "/",
+        sameSite: "strict",
+        secure: true,
+      });
+
       const newPosts = response.data;
       const newFeaturedPosts = newPosts.filter(
         (newPost: BlogPost) => newPost.featured
