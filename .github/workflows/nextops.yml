@@ -14,7 +14,7 @@ jobs:
       - name: Node management
         uses: actions/setup-node@v3
         with:
-          node-version: "lts"
+          node-version: "20.9.0"
       - name: Install packages and build
         run: |
           node --version

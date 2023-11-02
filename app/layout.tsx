@@ -7,6 +7,8 @@ import ClarityMS from "./Clarity";
 import NextBreadcrumb from "@/components/breadcrumbs/Breadcrumbs";
 import "@/global.css";
 import Head from "next/head";
+import GoogleAdsense from "./GoogleAdsense";
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.webstackpros.net"),
@@ -38,6 +40,11 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
+
+        {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE ? (
+          <GoogleAdsense ad_id={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE} />
+        ) : null}
+
         <ClarityMS />
       </body>
     </html>
