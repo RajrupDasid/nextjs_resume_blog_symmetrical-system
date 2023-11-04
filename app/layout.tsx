@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import NavBar from "./navbar/page";
 import Footer from "./footer/page";
 import GoogleAnalytics from "./GoogleAnalytics";
 import ClarityMS from "./Clarity";
 import NextBreadcrumb from "@/components/breadcrumbs/Breadcrumbs";
 import "@/global.css";
-import Head from "next/head";
 import GoogleAdsense from "./GoogleAdsense";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ weight: ["700"], subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.webstackpros.net"),
   title: "Webstackpros.net",
