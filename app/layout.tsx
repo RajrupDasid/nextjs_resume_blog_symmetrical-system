@@ -6,9 +6,11 @@ import GoogleAnalytics from "./GoogleAnalytics";
 import ClarityMS from "./Clarity";
 import NextBreadcrumb from "@/components/breadcrumbs/Breadcrumbs";
 import "@/global.css";
+
 import GoogleAdsense from "./GoogleAdsense";
 
 const inter = Roboto({ weight: ["700"], subsets: ["latin"] });
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.webstackpros.net"),
   title: "Webstackpros.net",
