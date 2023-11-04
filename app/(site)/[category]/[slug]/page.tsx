@@ -79,8 +79,6 @@ const SinglePage = async ({
         <div className="mx-auto max-w-screen-xl p-4">
           <div className="flex">
             <div className="w-full md:w-3/4 pr-4">
-              {" "}
-              {/* Increase the left side width */}
               <div className="header">
                 <Image
                   src={imageurl}
@@ -105,7 +103,7 @@ const SinglePage = async ({
                   <ul className="flex flex-wrap mt-6">
                     {post.tags.map((tag: any, index: any) => (
                       <li
-                        className="bg-gradient-to-r from-blue-400 to-purple-400 tagsclass p-2 m-1 rounded border border-gray-300 text-white"
+                        className="bg-gradient-to-r from-blue-500 to-purple-600 tagsclass p-2 m-1 rounded border border-gray-300 text-white"
                         key={index}>
                         {tag}
                       </li>
