@@ -1,3 +1,19 @@
+.categories-list{
+  margin-top: -40px;
+  @media screen and (max-width:780px){
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.hrclst{
+
+  @media screen and (max-width:780px) {
+    display: none;
+    visibility: hidden;
+    
+  }
+}
 
 .fcards{
   margin-left: 50vh;
