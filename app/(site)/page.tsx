@@ -118,7 +118,7 @@ export default function Blog() {
 
   return (
     <>
-      <div className="flex flex-wrap mt-2  place-items-center place-content-center categories-list">
+      <div className="flex flex-wrap place-items-center place-content-center categories-list">
         <h1 className="mb-10 text-2xl">Category</h1>
 
         <ul className="flex flex-wrap mt-10 ">
@@ -133,7 +133,7 @@ export default function Blog() {
             ))}
         </ul>
       </div>
-      <hr className="mt-10 mb-10 categories-list" />
+      <hr className="mt-5 mb-5 hrclst" />
       <div className="blog-page">
         <div className="blog-left">
           <div className="featured-post p-4">
