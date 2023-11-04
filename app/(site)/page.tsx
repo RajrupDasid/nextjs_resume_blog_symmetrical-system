@@ -104,111 +104,141 @@ export default function Blog() {
 
   const url = process.env.NEXT_PUBLIC_API_URL;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
+  function getUniqueCategories(posts: any) {
+    const uniqueCategories: any = [];
+
+    posts.forEach((post: any) => {
+      if (!uniqueCategories.includes(post.category)) {
+        uniqueCategories.push(post.category);
+      }
+    });
+
+    return uniqueCategories;
+  }
 
   return (
-    <div className="blog-page">
-      <div className="blog-left">
-        <div className="featured-post p-4">
-          <div className="flex px-60 mb-10 text-lg featured-posts">
-            <h1 className="text-white text-2xl px-10">Featured Posts</h1>
-          </div>
-          {featuredPosts.map((post, index) => {
-            let imageurl = "";
-            if (mode === "debug") {
-              imageurl = `${url}/${post.thumbnail}`;
-            } else {
-              imageurl = post.thumbnail;
-            }
+    <>
+      <div className="flex flex-wrap mt-2  place-items-center place-content-center categories-list">
+        <h1 className="mb-10 text-2xl">Category</h1>
 
-            return (
-              <div
-                className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg fcards"
-                key={post.id}>
-                <Link
-                  href={`${post.category}/${encodeURIComponent(post.slug)}`}>
-                  <Image
-                    src={imageurl}
-                    alt="post images"
-                    className="w-full"
-                    width={400}
-                    height={700}
-                  />
-                  <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">{post.title}</div>
-                    <div
-                      className="text-white text-base w-40 overflow-hidden"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          truncateContent(post.content)
-                        ),
-                      }}></div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        <div className="card-container">
-          <div className="mt-6 rposttop">
-            <h1 className="text-white text-2xl recentpost">Recent Post</h1>
-          </div>
-          {blogPosts.map((post) => {
-            let imageurl = "";
-            if (mode === "debug") {
-              imageurl = `${url}/${post.thumbnail}`;
-            } else {
-              imageurl = post.thumbnail;
-            }
-
-            return (
-              <div
-                className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg tcards"
-                key={post.id}>
-                <Link
-                  href={`${post.category}/${encodeURIComponent(post.slug)}`}>
-                  <Image
-                    src={imageurl}
-                    alt="post images"
-                    className="w-full"
-                    width={400}
-                    height={700}
-                  />
-
-                  <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">{post.title}</div>
-                    <div
-                      className="text-white text-base w-40 overflow-hidden"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          truncateContent(post.content)
-                        ),
-                      }}></div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        {isLoading && <p>Loading...</p>}
-      </div>
-
-      <div className="blog-right">
-        <div className="recent-posts">
-          <h3>Recent Posts</h3>
-          <ul>
-            {blogPosts.slice(0, 10).map((post) => (
-              <li key={post.id}>
-                <a href="#">{post.title}</a>
+        <ul className="flex flex-wrap mt-10 ">
+          {getUniqueCategories(blogPosts)
+            .slice(0, 10)
+            .map((category: any, index: number) => (
+              <li
+                key={category}
+                className="bg-gradient-to-r from-blue-950 to-purple-900 tagsclass p-2 m-3 rounded border border-gray-300 text-white">
+                <Link href={`${category}/`}>{category}</Link>
               </li>
             ))}
-          </ul>
+        </ul>
+      </div>
+      <hr className="mt-10 mb-10 categories-list" />
+      <div className="blog-page">
+        <div className="blog-left">
+          <div className="featured-post p-4">
+            <div className="flex px-60 mb-10 text-lg featured-posts">
+              <h1 className="text-white text-2xl px-10">Featured Posts</h1>
+            </div>
+            {featuredPosts.map((post, index) => {
+              let imageurl = "";
+              if (mode === "debug") {
+                imageurl = `${url}/${post.thumbnail}`;
+              } else {
+                imageurl = post.thumbnail;
+              }
+
+              return (
+                <div
+                  className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg fcards"
+                  key={post.id}>
+                  <Link
+                    href={`${post.category}/${encodeURIComponent(post.slug)}`}>
+                    <Image
+                      src={imageurl}
+                      alt="post images"
+                      className="w-full"
+                      width={400}
+                      height={700}
+                    />
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2">{post.title}</div>
+                      <div
+                        className="text-white text-base w-40 overflow-hidden"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(
+                            truncateContent(post.content)
+                          ),
+                        }}></div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          <div className="card-container">
+            <div className="mt-6 rposttop">
+              <h1 className="text-white text-2xl recentpost">Recent Post</h1>
+            </div>
+            {blogPosts.map((post) => {
+              let imageurl = "";
+              if (mode === "debug") {
+                imageurl = `${url}/${post.thumbnail}`;
+              } else {
+                imageurl = post.thumbnail;
+              }
+
+              return (
+                <div
+                  className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden  mt-10 h-180  shadow-lg tcards"
+                  key={post.id}>
+                  <Link
+                    href={`${post.category}/${encodeURIComponent(post.slug)}`}>
+                    <Image
+                      src={imageurl}
+                      alt="post images"
+                      className="w-full"
+                      width={400}
+                      height={700}
+                    />
+
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2">{post.title}</div>
+                      <div
+                        className="text-white text-base w-40 overflow-hidden"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(
+                            truncateContent(post.content)
+                          ),
+                        }}></div>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+          {isLoading && <p>Loading...</p>}
         </div>
-        {/* <div className="popular-topics">
+
+        <div className="blog-right">
+          <div className="recent-posts">
+            <h3>Recent Posts</h3>
+            <ul>
+              {blogPosts.slice(0, 10).map((post) => (
+                <li key={post.id}>
+                  <a href="#">{post.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* <div className="popular-topics">
           <h3>Popular Tags</h3>
           <ul></ul>
         </div> */}
-        <SearchForm />
+          <SearchForm />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
