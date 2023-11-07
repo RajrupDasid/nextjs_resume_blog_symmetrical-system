@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { MetadataRoute } from "next";
 export interface BlogPost {
   id: number;
   title: string;
@@ -7,7 +7,7 @@ export interface BlogPost {
   thumbnail: string;
   slug: string;
   metadata: string;
-  updated: Date; // Add a property for last modified date
+  updated: Date; 
   category: string;
   post:string;
 }
@@ -29,21 +29,23 @@ async function fetchBlogPosts() {
   }
 }
 
-export default async function sitemap() {
+export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   const url = "https://www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
   const postUrls = posts.map((post:BlogPost) => ({
     url: `${baseUrl}/${post.category}/${post.slug}`,
     lastModified: post.updated,
+    changeFrequency:'always',
+    priority:0.2,
   }));
 
   return [
-    { url: baseUrl, lastModified: new Date() },
-    { url: `${baseUrl}/about`, lastModified: new Date() },
-    {url:`${baseUrl}/contact`,lastModified:new Date()},
-    {url:`${baseUrl}/privacy-policy`,lastModified:new Date()},
-    {url:`${baseUrl}/terms-and-conditions`,lastModified:new Date()},
+    { url: baseUrl, lastModified: new Date(),changeFrequency:'never' },
+    { url: `${baseUrl}/about`, lastModified: new Date(),changeFrequency:'monthly' },
+    {url:`${baseUrl}/contact`,lastModified:new Date(),changeFrequency:'monthly'},
+    {url:`${baseUrl}/privacy-policy`,lastModified:new Date(),changeFrequency:'yearly'},
+    {url:`${baseUrl}/terms-and-conditions`,lastModified:new Date(),changeFrequency:'yearly'},
     ...postUrls,
   ];
 }
