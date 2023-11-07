@@ -103,6 +103,17 @@ export default function Blog() {
 
   const url = api;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
+  function getUniqueCategories(posts: any) {
+    const uniqueCategories: any = [];
+
+    posts.forEach((post: any) => {
+      if (!uniqueCategories.includes(post.category)) {
+        uniqueCategories.push(post.category);
+      }
+    });
+
+    return uniqueCategories;
+  }
 
   return (
     <>
@@ -194,6 +205,7 @@ export default function Blog() {
                       layout="responsive"
                       loading="eager"
                       quality={50}
+
                     />
 
                     <div className="px-6 py-4">
