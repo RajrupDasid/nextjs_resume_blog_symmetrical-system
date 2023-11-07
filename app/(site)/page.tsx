@@ -32,6 +32,18 @@ export default function Blog() {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const apiParams = process.env.NEXT_PUBLIC_API_PARAMS;
 
+  function getUniqueCategories(posts: any) {
+    const uniqueCategories: any = [];
+
+    posts.forEach((post: any) => {
+      if (!uniqueCategories.includes(post.category)) {
+        uniqueCategories.push(post.category);
+      }
+    });
+
+    return uniqueCategories;
+  }
+
   const fetchBlogPosts = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -88,18 +100,6 @@ export default function Blog() {
   }, [fetchBlogPosts]);
 
   const truncateContent = (content: string) => content.substring(0, 180);
-
-  function getUniqueCategories(posts: any) {
-    const uniqueCategories: any = [];
-
-    posts.forEach((post: any) => {
-      if (!uniqueCategories.includes(post.category)) {
-        uniqueCategories.push(post.category);
-      }
-    });
-
-    return uniqueCategories;
-  }
 
   const url = api;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
