@@ -100,7 +100,6 @@ export default function Blog() {
   }, [fetchBlogPosts]);
 
   const truncateContent = (content: string) => content.substring(0, 180);
-
   const url = api;
   const mode = process.env.NEXT_PUBLIC_ENV_STATE;
 
