@@ -22,6 +22,26 @@ const getData = async (category: string, slug: string): Promise<any> => {
   });
   return res.data;
 };
+
+const logVisit = async (postid: string) => {
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  try {
+    // Log the visit to your analytics or database
+    await axios.post(
+      `${url}/api/logVisit`,
+      { postid },
+      {
+        timeout: 90000000,
+        headers: {
+          Authorization: `${apl} ${apk}`,
+        },
+      }
+    );
+  } catch (error) {
+    console.error("Error logging visit:", error);
+  }
+};
+
 interface Params {
   slug: string;
   category: string;
@@ -65,6 +85,10 @@ const SinglePage = async ({
 }): Promise<JSX.Element> => {
   const { slug, category } = params;
   const post = await getData(category, slug);
+  const postid = post._id;
+  if (postid) {
+    logVisit(postid);
+  }
   if (mode === "debug") {
     imageurl = `${local}/${post.thumbnail}`;
   } else {
@@ -73,6 +97,7 @@ const SinglePage = async ({
 
   const apidate = `${post.updated}`;
   const fixdate = apidate.toString().slice(0, 19).replace("T", " @ ") + " UTC";
+
   return (
     <>
       <div className="min-h-screen">
@@ -84,11 +109,11 @@ const SinglePage = async ({
                   src={imageurl}
                   alt="hello world"
                   className="blog-header-image rounded-lg shadow-2xl"
-                  width={740}
-                  height={580}
+                  width={500}
+                  height={500}
                   placeholder="blur"
                   blurDataURL={imageurl}
-                  quality={100}
+                  quality={20}
                   priority
                 />
               </div>
