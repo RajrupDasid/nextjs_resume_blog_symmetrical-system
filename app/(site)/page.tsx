@@ -85,7 +85,6 @@ const Blog = async () => {
                             alt="featured post images"
                             width={519}
                             height={354}
-                            loading="eager"
                             quality={20}
                             priority
                           />
@@ -150,7 +149,6 @@ const Blog = async () => {
                       alt="post images"
                       width={519}
                       height={354}
-                      loading="eager"
                       quality={20}
                       priority
                     />
