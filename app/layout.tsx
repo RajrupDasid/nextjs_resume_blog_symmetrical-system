@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import NavBar from "./navbar/page";
 import Footer from "./footer/page";
@@ -10,7 +11,7 @@ import { websiteMetadata } from "@/util/websiteMetaData";
 
 const inter = Roboto({ weight: ["700"], subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(websiteMetadata.siteUrl),
   title: {
     template: `%s | ${websiteMetadata.title}`,
