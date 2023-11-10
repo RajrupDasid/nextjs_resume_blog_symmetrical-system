@@ -1,5 +1,6 @@
 import axios from "axios";
 import { MetadataRoute } from "next";
+import cron from 'node-cron';
 export interface BlogPost {
   id: number;
   title: string;
@@ -29,7 +30,7 @@ async function fetchBlogPosts() {
   }
 }
 
-export default async function sitemap():Promise<MetadataRoute.Sitemap> {
+async function generateSitemap():Promise<MetadataRoute.Sitemap> {
   const url = "https://www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
@@ -41,11 +42,31 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   }));
 
   return [
-    { url: baseUrl, lastModified: new Date(),changeFrequency:'never' },
+    { url: baseUrl, lastModified: new Date(),changeFrequency:'monthly' },
     { url: `${baseUrl}/about`, lastModified: new Date(),changeFrequency:'monthly' },
     {url:`${baseUrl}/contact`,lastModified:new Date(),changeFrequency:'monthly'},
     {url:`${baseUrl}/privacy-policy`,lastModified:new Date(),changeFrequency:'yearly'},
     {url:`${baseUrl}/terms-and-conditions`,lastModified:new Date(),changeFrequency:'yearly'},
     ...postUrls,
   ];
+}
+
+// Schedule sitemap generation every day at midnight
+cron.schedule('0 0 * * *', async () => {
+  try {
+    const updatedSitemap = await generateSitemap();
+    console.log('Updated Sitemap:', updatedSitemap);
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+  }
+});
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const initialSitemap = await generateSitemap();
+    return initialSitemap;
+  } catch (error) {
+    console.error('Error generating initial sitemap:', error);
+    return [];
+  }
 }

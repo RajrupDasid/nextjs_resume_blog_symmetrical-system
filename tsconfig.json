@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/blogs/[slug]/page.tsx"
-  ],
+, "util/SiteMetaData.ts"  ],
   "exclude": ["node_modules"]
 }
