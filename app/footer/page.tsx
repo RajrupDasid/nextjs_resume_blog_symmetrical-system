@@ -1,6 +1,6 @@
 import React from "react";
 import "@/public/assets/css/footer.scss";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
+import { FaSquareBehance, FaInstagram, FaDribbble } from "react-icons/fa6";
 import { BiMailSend } from "react-icons/bi";
 import Link from "next/link";
 
@@ -10,22 +10,15 @@ export default function Footer() {
       <footer className="footer">
         <div className="user-name">Webstackpros.net</div>
         <div className="social-icons">
-          <FaFacebook />
-          <FaTwitter />
-          <FaInstagram />
-        </div>
-        <div className="newsletter">
-          <div className="newslabel">
-            <label htmlFor="email">News Letter</label>
-          </div>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="newsletter-input"
-          />
-          <div className="send-icon">
-            <BiMailSend />
-          </div>
+          <Link href="https://www.behance.net/rajrupdas">
+            <FaSquareBehance />
+          </Link>
+          <Link href="https://dribbble.com/Rajrup_official">
+            <FaDribbble />
+          </Link>
+          <Link href="https://www.instagram.com/rajrupdasofficial/">
+            <FaInstagram />
+          </Link>
         </div>
 
         <div className="footer-links">

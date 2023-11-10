@@ -20,7 +20,9 @@ export default function NavBar() {
     <>
       <header>
         <nav>
-          <div className="left">Webstackpros.net</div>
+          <div className="left">
+            <Link href="/"> Webstackpros.net</Link>
+          </div>
           <div className="right">
             <ul>
               <li>
