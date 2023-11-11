@@ -9,4 +9,11 @@
 
 .blog-header-image{
   width: 120%;
+
+}
+@media  screen and (max-width:600px) {
+  .blog-header-image{
+    visibility: hidden;
+    display: none;
+  }
 }
