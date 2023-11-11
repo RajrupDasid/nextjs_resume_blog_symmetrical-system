@@ -9,6 +9,8 @@ const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 const mode = process.env.NEXT_PUBLIC_ENV_STATE;
 const local = process.env.NEXT_PUBLIC_API_URL;
+let imageurl = "";
+
 const getData = async (): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
   const api = `${url}/api/blogs/`;
@@ -50,7 +52,6 @@ const Blog = async () => {
   const newFeaturedPosts = posts.filter(
     (newPost: BlogPosts) => newPost.featured
   );
-
   return (
     <div className="container mx-auto p-4">
       <div className="mb-4">
@@ -83,10 +84,9 @@ const Blog = async () => {
                                 : post.thumbnail
                             }`}
                             alt="featured post images"
-                            width={519}
-                            height={354}
-                            quality={20}
-                            priority
+                            width={400}
+                            height={700}
+                            quality={30}
                           />
                           <div className="text-white font-bold text-xl mb-2">
                             {post.title}
@@ -147,10 +147,9 @@ const Blog = async () => {
                           : post.thumbnail
                       }`}
                       alt="post images"
-                      width={519}
-                      height={354}
-                      quality={20}
-                      priority
+                      width={400}
+                      height={700}
+                      quality={30}
                     />
                     <div className="flex flex-col justify-between p-4 leading-normal">
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
