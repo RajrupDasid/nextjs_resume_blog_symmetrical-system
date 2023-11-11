@@ -76,7 +76,7 @@ const Blog = async () => {
                           href={`${post.category}/${encodeURIComponent(
                             post.slug
                           )}`}>
-                          <Image
+                          {/* <Image
                             className="object-cover  md:mx-10 sm:mx-16  w-300 h-64 rounded-t-lg md:w-300 md:rounded-none md:rounded-l-lg"
                             src={`${
                               mode === "debug"
@@ -87,7 +87,7 @@ const Blog = async () => {
                             width={400}
                             height={700}
                             quality={30}
-                          />
+                          /> */}
                           <div className="text-white font-bold text-xl mb-2">
                             {post.title}
                           </div>
@@ -139,7 +139,7 @@ const Blog = async () => {
                     href={`${post.category}/${encodeURIComponent(post.slug)}`}
                     className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow  md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mt-10 "
                     key={post._id}>
-                    <Image
+                    {/* <Image
                       className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
                       src={`${
                         mode === "debug"
@@ -150,7 +150,7 @@ const Blog = async () => {
                       width={400}
                       height={700}
                       quality={30}
-                    />
+                    /> */}
                     <div className="flex flex-col justify-between p-4 leading-normal">
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {post.title}

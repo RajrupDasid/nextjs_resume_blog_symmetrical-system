@@ -11,12 +11,47 @@ import { websiteMetadata } from "@/util/websiteMetaData";
 
 const inter = Roboto({ weight: ["700"], subsets: ["latin"] });
 
+// export const metadata: Metadata = {
+//   metadataBase: new URL("https://www.webstackpros.net"),
+//   title: "Webstackpros.net",
+//   description:
+//     "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
+//   other: { "p:domain_verify": "7f562b83bb6b61abb8204072b470b756" },
+// };
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.webstackpros.net"),
   title: "Webstackpros.net",
   description:
     "We are a team of professionals here to turn your digital dreams into reality. You imagine it, and we'll develop it. Thank you for visiting our site.",
   other: { "p:domain_verify": "7f562b83bb6b61abb8204072b470b756" },
+  openGraph: {
+    title: websiteMetadata.title,
+    description: websiteMetadata.description,
+    url: websiteMetadata.siteUrl,
+    siteName: websiteMetadata.title,
+    images: [websiteMetadata.socialBanner],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: websiteMetadata.title,
+    images: [websiteMetadata.socialBanner],
+  },
+
 };
 
 // export const metadata: Metadata = {
