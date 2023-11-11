@@ -105,14 +105,14 @@ const SinglePage = async ({
           <div className="flex">
             <div className="w-full md:w-3/4 pr-4">
               <div className="header">
-                <Image
+                {/* <Image
                   src={imageurl}
                   alt="hello world"
                   className="blog-header-image rounded-lg shadow-2xl"
                   width={400}
                   height={700}
                   quality={30}
-                />
+                /> */}
               </div>
               <div className="blog-details mt-10">
                 <h1 className="text-3xl font-semibold text-white">
