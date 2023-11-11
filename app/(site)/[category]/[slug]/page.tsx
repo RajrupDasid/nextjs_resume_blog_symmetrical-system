@@ -109,12 +109,9 @@ const SinglePage = async ({
                   src={imageurl}
                   alt="hello world"
                   className="blog-header-image rounded-lg shadow-2xl"
-                  width={500}
-                  height={500}
-                  placeholder="blur"
-                  blurDataURL={imageurl}
-                  quality={20}
-                  priority
+                  width={400}
+                  height={700}
+                  quality={30}
                 />
               </div>
               <div className="blog-details mt-10">
