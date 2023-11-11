@@ -8,7 +8,7 @@ const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
 const mode = process.env.NEXT_PUBLIC_ENV_STATE;
 const local = process.env.NEXT_PUBLIC_API_URL;
-
+let imageurl = "";
 const getData = async (category: string): Promise<any> => {
   const url = process.env.NEXT_PUBLIC_API_URL;
   const api = `${url}/api/category/${category}`;
@@ -44,7 +44,11 @@ const Category = async ({
   const truncateContent = (content: string) => {
     return content ? content.substring(0, 180) : "";
   };
-
+  if (mode === "debug") {
+    imageurl = `${local}/${posts.thumbnail}`;
+  } else {
+    imageurl = `${posts.thumbnail}`;
+  }
   return (
     <div className="congular">
       <h1 className="text-2xl px-40 mt-10">Category post List</h1>
