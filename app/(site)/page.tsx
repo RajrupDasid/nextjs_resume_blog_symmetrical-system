@@ -4,6 +4,7 @@ import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
 import Image from "next/image";
 import "@/public/assets/css/blogcard.scss";
+import cron from "node-cron";
 
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;
@@ -22,6 +23,23 @@ const getData = async (): Promise<any> => {
   });
   return res.data;
 };
+const getTrendingData = async (): Promise<any> => {
+  const uri = process.env.NEXT_PUBLIC_API_URL;
+  const apx = `${uri}/api/trending`;
+  const response = await axios.get(apx, {
+    timeout: 90000000,
+    headers: {
+      Authorization: `${apl} ${apk}`,
+    },
+  });
+  return response.data;
+};
+cron.schedule("0 */6 * * *", async () => {
+  // Run every 6 hours
+  await getData();
+  await getTrendingData();
+});
+
 interface BlogPosts {
   _id: string;
   title: string;
@@ -45,13 +63,15 @@ const dakars = (posts: any) => {
 
   return uniqueCategories;
 };
-const truncateContent = (content: string) => content.substring(0, 180);
-
+const truncateContent = (content: string) => content.substring(0, 580);
+const mmpo = (content: string) => content.substring(0, 50);
 const Blog = async () => {
   const posts = await getData();
-  const newFeaturedPosts = posts.filter(
-    (newPost: BlogPosts) => newPost.featured
-  );
+  const tposts = await getTrendingData();
+  const newFeaturedPosts = posts
+    .filter((newPost: BlogPosts) => newPost.featured)
+    .slice(0, 3);
+
   return (
     <div className="container mx-auto p-4">
       <div className="mb-4">
@@ -61,52 +81,36 @@ const Blog = async () => {
             Featured
           </h1>
         </div>
-        {newFeaturedPosts.length > 0 && (
-          <div className="bg-blue-950 p-4 rounded shadow-md">
-            <div className="p-10">
-              <div className="w-full lg:max-w-full lg:flex">
-                <div
-                  className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                  title="Mountain"></div>
-                <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400  bg-sky-900 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                  <div className="mb-8">
-                    {newFeaturedPosts.map((post: BlogPosts) => (
-                      <div key={post._id}>
-                        <Link
-                          href={`${post.category}/${encodeURIComponent(
-                            post.slug
-                          )}`}>
-                          {/* <Image
-                            className="object-cover  md:mx-10 sm:mx-16  w-300 h-64 rounded-t-lg md:w-300 md:rounded-none md:rounded-l-lg"
-                            src={`${
-                              mode === "debug"
-                                ? `${local}/${post.thumbnail}`
-                                : post.thumbnail
-                            }`}
-                            alt="featured post images"
-                            width={400}
-                            height={700}
-                            quality={30}
-                          /> */}
-                          <div className="text-white font-bold text-xl mb-2">
-                            {post.title}
-                          </div>
-                          <div
-                            className="text-white text-base"
-                            dangerouslySetInnerHTML={{
-                              __html: DOMPurify.sanitize(
-                                truncateContent(post.content)
-                              ),
-                            }}></div>
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
+        <div className="bg-slate-950 p-4 rounded shadow-md">
+          <div className="p-4 lg:p-10">
+            <div className="w-full lg:max-w-full lg:flex justify-center">
+              <div className="flex bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center lg:text-left overflow-hidden">
+                <div className="mb-4 lg:mb-8 flex flex-col items-center lg:items-start justify-center lg:justify-start w-full">
+                  {newFeaturedPosts.map((post: BlogPosts) => (
+                    <div key={post._id} className="mb-4 w-full">
+                      <Link
+                        href={`${post.category}/${encodeURIComponent(
+                          post.slug
+                        )}`}>
+                        <div className="text-4xl  font-extra-bold w-full">
+                          {post.title}
+                        </div>
+                        <div
+                          className="text-white text-base"
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                              truncateContent(post.content)
+                            ),
+                          }}></div>
+                      </Link>
+                    </div>
+                  ))}
+
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
       <div className="mb-20 mt-20 overflow-x-auto overflow-y-hidden">
         <div>
@@ -117,7 +121,7 @@ const Blog = async () => {
         <div className="flex space-x-4">
           {dakars(posts).map((category: any, index: any) => (
             <div
-              className="flex flex-grow items-center px-10 bg-gradient-to-r from-cyan-900 to-blue-950 w-36 h-30 rounded shadow-md "
+              className="flex flex-grow items-center px-10 bg-gradient-to-r from-slate-800 to-blue-950 h-20 w-40 rounded shadow-md mb-5"
               key={index}>
               <Link href={`${category}/`}>{category}</Link>
             </div>
@@ -131,33 +135,21 @@ const Blog = async () => {
             <div className="text-white text-4xl underline mx-28">
               <h4 className="text-white font-bold mb-10">All Posts</h4>
             </div>
-            <div className="overflow-y-auto h-auto max-h-screen">
+            <div className="overflow-y-auto overflow-x-hidden h-auto max-h-screen  ml-10 md:mx-10">
               {posts &&
                 posts.length > 0 &&
                 posts.map((post: BlogPosts) => (
                   <Link
                     href={`${post.category}/${encodeURIComponent(post.slug)}`}
-                    className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow  md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mt-10 "
+                    className="flex flex-col items-center bg-gray-100 dark:bg-gray-800 border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700 mt-10  md:mt-8 mx-2 md:mx-8  p-4"
                     key={post._id}>
-                    {/* <Image
-                      className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                      src={`${
-                        mode === "debug"
-                          ? `${local}/${post.thumbnail}`
-                          : post.thumbnail
-                      }`}
-                      alt="post images"
-                      width={400}
-                      height={700}
-                      quality={30}
-                    /> */}
-                    <div className="flex flex-col justify-between p-4 leading-normal">
+                    <div className="flex flex-col justify-between leading-normal w-full">
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {post.title}
                       </h5>
 
                       <div
-                        className="mb-3 font-normal text-white dark:text-gray-200 overflow-hidden"
+                        className="mb-3 font-normal text-gray-700 dark:text-gray-300 overflow-hidden"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(
                             truncateContent(post.content)
@@ -168,7 +160,44 @@ const Blog = async () => {
                 ))}
             </div>
           </div>
-          <div className="w-1/4 p-4 sm:hidden"></div>
+          <div className="w-1/4 p-4 mt-20 hidden sm:block">
+            <h2 className="text-white text-4xl underline mb-4">
+              Trending Posts
+            </h2>
+            <div className="flow-root">
+              {tposts &&
+                posts.length > 0 &&
+                tposts.map((tpost: BlogPosts) => (
+                  <ul
+                    role="list"
+                    className="divide-y divide-gray-200 dark:divide-gray-700"
+                    key={tpost._id}>
+                    <li className="py-3 sm:py-4">
+                      <Link
+                        href={`${tpost.category}/${encodeURIComponent(
+                          tpost.slug
+                        )}`}>
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0">
+                            {/* <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image"> */}
+                          </div>
+                          <div className="flex-1 min-w-0 ms-4">
+                            <p className="text-2xl font-medium text-gray-900 truncate dark:text-white">
+                              {tpost.title}
+                            </p>
+                            <div
+                              className="text-sm text-gray-500 truncate dark:text-gray-400 overflow-hidden mt-4"
+                              dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(mmpo(tpost.content)),
+                              }}></div>
+                          </div>
+                        </div>
+                      </Link>
+                    </li>
+                  </ul>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
