@@ -4,7 +4,7 @@ import coder from "@/public/assets/images/coder.jpeg";
 import Image from "next/image";
 import type { Metadata } from "next";
 import TechStack from "../techstack/page";
-import ServiceCard from "./sitecard/page";
+import ServiceCard from "./sitecard/servicecard";
 
 export const metadata: Metadata = {
   title: "Webstackpros.net | About Us",

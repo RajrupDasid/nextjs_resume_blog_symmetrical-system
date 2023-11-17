@@ -30,7 +30,7 @@ async function fetchBlogPosts() {
   }
 }
 
-async function generateSitemap():Promise<MetadataRoute.Sitemap> {
+export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   const url = "https://www.webstackpros.net"
   const baseUrl = url;
   const posts = await fetchBlogPosts();
@@ -38,7 +38,7 @@ async function generateSitemap():Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/${post.category}/${post.slug}`,
     lastModified: post.updated,
     changeFrequency:'always',
-    priority:0.2,
+    priority:1,
   }));
 
   return [
@@ -49,24 +49,4 @@ async function generateSitemap():Promise<MetadataRoute.Sitemap> {
     {url:`${baseUrl}/terms-and-conditions`,lastModified:new Date(),changeFrequency:'yearly'},
     ...postUrls,
   ];
-}
-
-// Schedule sitemap generation every day at midnight
-cron.schedule('0 0 * * *', async () => {
-  try {
-    const updatedSitemap = await generateSitemap();
-    console.log('Updated Sitemap:', updatedSitemap);
-  } catch (error) {
-    console.error('Error generating sitemap:', error);
-  }
-});
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  try {
-    const initialSitemap = await generateSitemap();
-    return initialSitemap;
-  } catch (error) {
-    console.error('Error generating initial sitemap:', error);
-    return [];
-  }
 }

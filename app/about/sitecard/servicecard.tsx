@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import "@/public/assets/css/sitecard.scss";
 

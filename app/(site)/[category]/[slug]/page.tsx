@@ -1,4 +1,3 @@
-import DOMPurify from "isomorphic-dompurify";
 import axios from "axios";
 import "@/public/assets/css/BlogDetail.scss";
 import Image from "next/image";
@@ -105,14 +104,15 @@ const SinglePage = async ({
           <div className="flex">
             <div className="w-full md:w-3/4 pr-4">
               <div className="header">
-                {/* <Image
+                <Image
                   src={imageurl}
                   alt="hello world"
                   className="blog-header-image rounded-lg shadow-2xl"
                   width={400}
                   height={700}
-                  quality={30}
-                /> */}
+                  quality={60}
+                  priority
+                />
               </div>
               <div className="blog-details mt-10">
                 <h1 className="text-3xl font-semibold text-white">
@@ -135,7 +135,7 @@ const SinglePage = async ({
                 <div
                   className="blog-description mt-10 text-white"
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(post.content),
+                    __html: post.content,
                   }}
                 />
               </div>

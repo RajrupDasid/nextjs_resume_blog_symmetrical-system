@@ -59,7 +59,7 @@ const Category = async ({
             className="bg-gradient-to-r from-gray-900 to-purple-900 max-w-sm rounded overflow-hidden mt-10 h-180 shadow-lg fcards"
             key={post._id}>
             <Link href={`${encodeURIComponent(post.slug)}`}>
-              {/* <Image
+              <Image
                 src={`${
                   mode === "debug"
                     ? `${local}/${post.thumbnail}`
@@ -69,13 +69,13 @@ const Category = async ({
                 className="w-full"
                 width={400}
                 height={700}
-              /> */}
+              />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{post.title}</div>
                 <div
                   className="text-white text-base w-40 overflow-hidden"
                   dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(truncateContent(post.content)),
+                    __html: truncateContent(post.content),
                   }}></div>
               </div>
             </Link>

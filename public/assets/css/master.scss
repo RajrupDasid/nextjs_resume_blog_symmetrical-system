@@ -71,14 +71,14 @@ body {
   //   }
   // }
 //   linear body ends here
-nav{
+
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 35px;
+    height: 50px;
     background-color: #0f172a;
-    
-
+    box-shadow: 0 4px 10px darkslategray;
 }
 nav ul{
     display: flex;

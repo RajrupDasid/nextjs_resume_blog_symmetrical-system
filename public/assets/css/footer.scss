@@ -1,12 +1,13 @@
 .footer {
-  background: linear-gradient(to bottom, #020000, #000000); 
+  background:  #000716; 
   color: #ffffff; 
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30vh;
-  border: 1px solid #ffffff;
+  height: 25vh;
+  box-shadow: 0 -4px 10px darkslategray;
+
 
   @media (max-width: 600px) {
     flex-direction: column;
