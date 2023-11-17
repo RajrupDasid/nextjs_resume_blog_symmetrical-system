@@ -1,6 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 const apk = process.env.NEXT_PUBLIC_API_KEY;
 const apl = process.env.NEXT_PUBLIC_API_PARAMS;

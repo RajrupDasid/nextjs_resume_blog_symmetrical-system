@@ -34,11 +34,6 @@ const getTrendingData = async (): Promise<any> => {
   });
   return response.data;
 };
-cron.schedule("0 */6 * * *", async () => {
-  // Run every 6 hours
-  await getData();
-  await getTrendingData();
-});
 
 interface BlogPosts {
   _id: string;
@@ -68,6 +63,12 @@ const mmpo = (content: string) => content.substring(0, 50);
 const Blog = async () => {
   const posts = await getData();
   const tposts = await getTrendingData();
+  cron.schedule("*/10 * * * *", async () => {
+    // Run every 10 minutes
+    await getData();
+    await getTrendingData();
+  });
+
   const newFeaturedPosts = posts
     .filter((newPost: BlogPosts) => newPost.featured)
     .slice(0, 3);
@@ -144,6 +145,18 @@ const Blog = async () => {
                     className="flex flex-col items-center bg-gray-100 dark:bg-gray-800 border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-700 mt-10  md:mt-8 mx-2 md:mx-8  p-4"
                     key={post._id}>
                     <div className="flex flex-col justify-between leading-normal w-full">
+                      <Image
+                        src={`${
+                          mode === "debug"
+                            ? `${local}/${post.thumbnail}`
+                            : post.thumbnail
+                        }`}
+                        alt="post images"
+                        className="w-8 h-8 rounded-full"
+                        width={400}
+                        height={700}
+                        quality={40}
+                      />
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {post.title}
                       </h5>
@@ -180,6 +193,18 @@ const Blog = async () => {
                         <div className="flex items-center">
                           <div className="flex-shrink-0">
                             {/* <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image"> */}
+                            <Image
+                              src={`${
+                                mode === "debug"
+                                  ? `${local}/${tpost.thumbnail}`
+                                  : tpost.thumbnail
+                              }`}
+                              alt="post images"
+                              className="w-8 h-8 rounded-full"
+                              width={400}
+                              height={700}
+                              quality={40}
+                            />
                           </div>
                           <div className="flex-1 min-w-0 ms-4">
                             <p className="text-2xl font-medium text-gray-900 truncate dark:text-white">
